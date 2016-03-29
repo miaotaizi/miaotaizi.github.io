@@ -1,44 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Mr Miao</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-18T13:35:13.000Z</updated>
+  <updated>2016-03-29T04:05:32.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>miaotaizi</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2016/03/18/hello-world/"/>
-    <id>http://yoursite.com/2016/03/18/hello-world/</id>
-    <published>2016-03-18T13:35:13.000Z</published>
-    <updated>2016-03-18T13:35:13.000Z</updated>
+    <title>Drupal7模块开发 编写自动测试</title>
+    <link href="http://yoursite.com/2016/03/23/drupal-module-development-2/"/>
+    <id>http://yoursite.com/2016/03/23/drupal-module-development-2/</id>
+    <published>2016-03-23T15:34:41.000Z</published>
+    <updated>2016-03-29T04:05:32.000Z</updated>
     
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, &lt;em&gt;单元测试&lt;/em&gt; 和 &lt;em&gt;功能测试&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.&lt;/p&gt;
+&lt;p&gt;大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是为了验证在Drupal中插入的代码是否与预期的功能一样,并且与其他代码相吻合.  这是一个比单元测试更广泛的测试种类.  测试可以精确的测量更大的代码块的准确性.&lt;/p&gt;
+&lt;p&gt;测试模块已经默认包含在Drupal7中,但是他是没有被默认启用的.一旦他启用了,你就可以在   Configuration-&amp;gt;Development 找到Testing的配置页面.&lt;/p&gt;
+&lt;p&gt;测试应该存在自己的文件中,就像模块的主代码存放在 &lt;code&gt;modulename/modulename.module&lt;/code&gt;之中一样,测试文件也应该在&lt;br&gt;&lt;code&gt;modulename/modulename.test&lt;/code&gt;中,这样测试框架变会自动去检索到它&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot; title=&quot;起步:&quot;&gt;&lt;/a&gt;起步:&lt;/h2&gt;&lt;p&gt;就像在模块里的其他文件一样,测试文件也必须被写在&lt;code&gt;.info&lt;/code&gt;文件当中.所有我们需要加入的文件都必须填写在 &lt;code&gt;.info&lt;/code&gt;文件里面的 &lt;code&gt;files&lt;/code&gt; 数组之中.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;;$Id$
+name = First
+description = A first module.
+core = 7.x
+package = Drupal 7 Development
+files[] = first.module
+files[] = first.test
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;每当你的模块安装了之后,Drupal都会去缓存&lt;code&gt;.info&lt;/code&gt;文件里面的内容.一旦你在&lt;code&gt;.info&lt;/code&gt;文件里面添加了一个新的项目,你就必须去重新访问一下Drupal的模块页面,来强制Drupal重新解析&lt;code&gt;.info&lt;/code&gt;文件.&lt;br&gt;(保险起见,这里建议 进入 Configuration-&amp;gt;Development-&amp;gt;Performance 中Clear all caches)&lt;/p&gt;
+&lt;h2 id=&quot;编写测试部件&quot;&gt;&lt;a href=&quot;#编写测试部件&quot; class=&quot;headerlink&quot; title=&quot;编写测试部件:&quot;&gt;&lt;/a&gt;编写测试部件:&lt;/h2&gt;&lt;p&gt;大多数部件遵循下面这个简单的样本:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建一个继承DrupalWebTestCase 类&lt;/li&gt;
+&lt;li&gt;添加一个getInfo() 函数&lt;/li&gt;
+&lt;li&gt;在setUp() 方法里面设置一些必要的配置&lt;/li&gt;
+&lt;li&gt;以单词test开始来编写一些方法&lt;/li&gt;
+&lt;li&gt;在每个测试方法中,为测试的实际值来使用一个或多个声明&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当我们在进行我们自己的测试的时候,我们将按照上面的每一步来测试.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+* @file
+* Tests for the first module
+*/
+class FirstTestCase extends DrupalWebTestCase {
+// Methods will go here.
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个测试部件继承了一个叫做 DrupalWebTestCase的基类. 这个基类为测试提供了许多工具.测试案例不必要陈列或者使用核心逻辑.&lt;br&gt;出于这两种原因,每个Drupal测试必须继承这个基类,或者继承另外一个继承了这个基类的其他类.&lt;br&gt;一旦我们声明了这个类,我们就可以创建我们的第一个方法,&lt;code&gt;getInfo()&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命名约定与类&lt;br&gt;Drupal的function命名都是以小写字母命名的,并且用下划线来分割单词,但是类和方法的命名却不是这样的.类的命名应该以大写字母开头的驼峰式写法,例如”CamelCase”,方法的命名则是以小写字母开头的驼峰试写法,例如 “camelCase”.下划线是不允许出现在类与类方法的名称当中的.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在之前,我们已经看到Drupal使用一些嵌套的数组来传递信息.例如我们之前创建的 &lt;code&gt;first_block_info()&lt;/code&gt; 方法就是这样做的.&lt;br&gt;在&lt;code&gt;DrupalWebTestCase::getInfo()&lt;/code&gt; 方法里面,同样也是返回一个关联数组.此时返回的信息就是关于这个测试的.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * @file
+ * Tests for the first module
+ */
+class FirstTestCase extends DrupalWebTestCase {
+
+    public function setUp() {
+      parent::setUp(&amp;apos;first&amp;apos;);
+    }
+
+    public static function getInfo() {
+      return array(
+        &amp;apos;name&amp;apos; =&amp;gt; &amp;apos;First module block functionality&amp;apos;,
+        &amp;apos;description&amp;apos; =&amp;gt; &amp;apos;Test blocks in the First module&amp;apos;,
+        &amp;apos;group&amp;apos; =&amp;gt; &amp;apos;First&amp;apos;,
+      );
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个&lt;code&gt;getInfo()&lt;/code&gt;方法返回的是一个带有三个项目的数组,这三个项目分别是:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;name: 测试的名称&lt;/li&gt;
+&lt;li&gt;description:关于这个测试的一句话描述&lt;/li&gt;
+&lt;li&gt;grup:这个测试所属于的组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这三个项目都是旨在为人类所读取的信息.  前面两个是纯粹的参考信息,第三个是将类似的测试罗列在相同的标题下.&lt;br&gt;&lt;code&gt;getInfo()&lt;/code&gt;函数看上去是不起眼的,但你的测试必须得包含他,也就是说,如果没有这个函数,你的测试将无法被执行 .&lt;/p&gt;
+&lt;h2 id=&quot;设置测试&quot;&gt;&lt;a href=&quot;#设置测试&quot; class=&quot;headerlink&quot; title=&quot;设置测试:&quot;&gt;&lt;/a&gt;设置测试:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+* @file
+* Tests for the first module
+*/
+class FirstTestCase extends DrupalWebTestCase {
+  public function setUp() {
+    parent::setUp(&amp;apos;first&amp;apos;);
+  }
+
+  public function getInfo() {
+    return array(
+      &amp;apos;name&amp;apos; =&amp;gt; &amp;apos;First module block functionality&amp;apos;,
+      &amp;apos;description&amp;apos; =&amp;gt; &amp;apos;Test blocks in the First module.&amp;apos;,
+      &amp;apos;group&amp;apos; =&amp;gt; &amp;apos;First&amp;apos;,
+    );
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;setUp()&lt;/code&gt;方法不是必须的,但当你一旦使用他的时候,你就必须写一行上述代码,就是如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;parent::setUp(&amp;apos;first&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是告诉&lt;code&gt;setUp()&lt;/code&gt;方法去启用存在于&lt;code&gt;DrupalWebTestCase&lt;/code&gt;类里面的&lt;code&gt;setUp()&lt;/code&gt;方法.&lt;br&gt;这么做的目的,是为了去初始化我们要测试的模块,这也意味着我们不需要去启动我们的模块,来进行测试代码的编写.&lt;br&gt;当你在编写你的测试部件的时候,你也可以在&lt;code&gt;parent::setUp()&lt;/code&gt;请求下方编写你自己的配置信息,在之后我们将看到相关例子.&lt;/p&gt;
+&lt;h2 id=&quot;编写测试方法&quot;&gt;&lt;a href=&quot;#编写测试方法&quot; class=&quot;headerlink&quot; title=&quot;编写测试方法:&quot;&gt;&lt;/a&gt;编写测试方法:&lt;/h2&gt;&lt;p&gt;测试部件的大多数的方法是测试方法,他们仅仅是用来验证模块是否正常工作.就像你看到的一样,没有任何代码中调用了这些方法.&lt;br&gt;那么简单测试是如何调用我们的方法呢?就像Drupal的钩子约定一样,任何以test开头的方法是会被测试框架自动执行.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * @file
+ * Tests for the first module
+ */
+class FirstTestCase extends DrupalWebTestCase {
+    public function setUp() {
+      parent::setUp(&amp;apos;first&amp;apos;);
+    }
+    public static function getInfo() {
+      return array(
+        &amp;apos;name&amp;apos; =&amp;gt; &amp;apos;First module block functionality&amp;apos;,
+        &amp;apos;description&amp;apos; =&amp;gt; &amp;apos;Test blocks in the First module&amp;apos;,
+        &amp;apos;group&amp;apos; =&amp;gt; &amp;apos;First&amp;apos;,
+      );
+    }
+    public function testBlockInfo() {
+      $info = module_invoke(&amp;apos;first&amp;apos;, &amp;apos;block_info&amp;apos;);
+      $this-&amp;gt;assertEqual(1, count($info),
+        t(&amp;apos;Module define a block.&amp;apos;));
+      $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
+        t(&amp;apos;Module list exists.&amp;apos;));
+    }
+    public function testBlockView() {
+      $data = module_invoke(&amp;apos;first&amp;apos;, &amp;apos;block_view&amp;apos;,&amp;apos;list_modules&amp;apos;);
+      $this-&amp;gt;assertTrue(is_array($data),
+        t(&amp;apos;Block returns readerable array.&amp;apos;));
+      $this-&amp;gt;assertEqual(t(&amp;apos;Enabled Modules&amp;apos;), $data[&amp;apos;subject&amp;apos;],
+        t(&amp;apos;Subject is set&amp;apos;));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的代码包含了两个测试的成员方法,就像他们的名字一样,每个方法都是负责之前创建的两个区块方法的测试.&lt;br&gt;他们做了三个事情:&lt;br&gt;首先,他运行了一个叫做 &lt;code&gt;module_invoke()&lt;/code&gt;的函数,并且用&lt;code&gt;$info&lt;/code&gt;来存储了他的结果.&lt;code&gt;module_invoke()&lt;/code&gt;函数主要是用来请求特定的模块里面的特定的钩子. &lt;code&gt;module_invoke()&lt;/code&gt;方法有两个参数: 模块的名称,钩子的名称. 类似与&lt;code&gt;module_invoke(&amp;#39;first&amp;#39;,&amp;#39;block_info&amp;#39;)&lt;/code&gt;这样的请求就好比在请求&lt;code&gt;first_block_info()&lt;/code&gt;钩子,这样做的好处就是能确保他被钩子系统所挂载.为达到我们的预期,我们做了一个成对的断言. 测试框架会有效的验证这些断言,如果方法正如预期,则通过,否则失败.&lt;br&gt;我们先看看 &lt;code&gt;first_block_info()&lt;/code&gt; 测试方法&lt;br&gt;这里做了两个测试:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$this-&amp;gt;assertEqual(1, count($info),
+  t(&amp;apos;Module defines a block.));
+$this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
+  t(&amp;apos;Module list exists.&amp;apos;));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(注意,这些代码都为了格式化,把一行分割成了两行)&lt;/p&gt;
+&lt;p&gt;每个断言都有&lt;code&gt;$this-&amp;gt;assertSOMETHING($conditions,$message)&lt;/code&gt; 这样的格式,其中 &lt;code&gt;SOMETHING&lt;/code&gt;表示断言的种类,&lt;code&gt;$conditions&lt;/code&gt; 是断言满足并且可以通过的条件,&lt;code&gt;$message&lt;/code&gt;就是一个测试的描述. 在我们的第一个测试中,&lt;code&gt;1&lt;/code&gt; 与 &lt;code&gt;count($info)&lt;/code&gt; 应该是相等的.断言方法都存在于 &lt;code&gt;DrupalWebTestCase&lt;/code&gt;这个父类当中,这个类提供了十几种断言方法来使测试进行的更简单.&lt;/p&gt;
+&lt;p&gt;在例子中我们的断言是这样的:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$this-&amp;gt;assertEqual():第一个值(已知)等于第二值(测试值)的断言.&lt;/li&gt;
+&lt;li&gt;$this-&amp;gt;assertTrue():给定结果为TRUE的断言.&lt;br&gt;第一个断言验证了我们在block_info()钩子里面定义的block,第二个断言验证了这个block的名字是否为list_modules.&lt;br&gt;这样,当我们的测试进行的时候,我们就可以确定我们的info钩子是否返回了关于我们的简单的区块的信息.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;再看看&lt;code&gt;first_block_view()&lt;/code&gt;的测试.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public function testBlockView() {
+    $data = module_invoke(&amp;apos;first&amp;apos;, &amp;apos;block_view&amp;apos;,
+        &amp;apos;list_modules&amp;apos;);
+    $this-&amp;gt;assertTrue(is_array($data),
+        t(&amp;apos;Block returns renderable array.&amp;apos;));
+    $this-&amp;gt;assertEqual(t(&amp;apos;Enabled Modules&amp;apos;), $data[&amp;apos;subject&amp;apos;],
+        t(&amp;apos;Subject is set&amp;apos;));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这次我们执行的是 &lt;code&gt;block_view()&lt;/code&gt;钩子.并且再次执行了两个断言.第一个断言确认了&lt;code&gt;first_block_view()&lt;/code&gt;返回的是否是一个数组.第二个断言验证了他的标题是否与我们预期的一样,为 &lt;code&gt;Enabled Modules&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;编写完毕,我们就可以去 Configuration-&amp;gt; Testing 里面去选中我们的测试,并且运行他了,看看结果吧,你的测试是否都通过了呢!&lt;/p&gt;
+
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, &lt;em&gt;单元测试&lt;/em&gt; 和 &lt;em&gt;功能测试&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.&lt;/p&gt;
+&lt;p&gt;大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是为了验证在Drupal中插入的代码是否与预期的功能一样,并且与其他代码相吻合.  这是一个比单元测试更广泛的测试种类.  测试可以精确的测量更大的代码块的准确性.&lt;/p&gt;
+&lt;p&gt;测试模块已经默认包含在Drupal7中,但是他是没有被默认启用的.一旦他启用了,你就可以在   Configuration-&amp;gt;Development 找到Testing的配置页面.&lt;/p&gt;
+&lt;p&gt;测试应该存在自己的文件中,就像模块的主代码存放在 &lt;code&gt;modulename/modulename.module&lt;/code&gt;之中一样,测试文件也应该在&lt;br&gt;&lt;code&gt;modulename/modulename.test&lt;/code&gt;中,这样测试框架变会自动去检索到它&lt;/p&gt;
     
     </summary>
     
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Drupal7模块开发 创建第一个模块</title>
+    <link href="http://yoursite.com/2016/03/23/drupal-module-development-1/"/>
+    <id>http://yoursite.com/2016/03/23/drupal-module-development-1/</id>
+    <published>2016-03-23T14:00:16.000Z</published>
+    <updated>2016-03-29T04:04:01.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;模块命名&quot;&gt;&lt;a href=&quot;#模块命名&quot; class=&quot;headerlink&quot; title=&quot;模块命名&quot;&gt;&lt;/a&gt;模块命名&lt;/h2&gt;&lt;p&gt;Drupal的模块有两个名字,人读名与机读名.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;  人读名: 是由首字母大写的且用空格分开的单词组成,例如:Views, Eldorado Superfly等等.&lt;/p&gt;
+&lt;p&gt;  机读名: 是由小写字母,数字和下划线组成的字符串,且不允许有其他字母.例如上面两个模块的机读名字则应该为:views和eldorado_superfly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;按照惯例这两个名字应该差不多,而且通常应该将大写祖母转化为小写字母.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;模块存放位置&quot;&gt;&lt;a href=&quot;#模块存放位置&quot; class=&quot;headerlink&quot; title=&quot;模块存放位置&quot;&gt;&lt;/a&gt;模块存放位置&lt;/h2&gt;&lt;p&gt;Drupal 的自定义模块通常是用来存放在 &lt;code&gt;/sites/default/modules&lt;/code&gt; 文件夹下面, 这样做的好处是可以与标准模块分开,以便更容易找到自己没有整理的杂乱的代码.&lt;/p&gt;
+&lt;p&gt;Drupal中自定义模块如果放在 &lt;code&gt;/sites/default&lt;/code&gt; 文件夹中, 只能被默认站点所加载. 这意味着, 在实践中如果把模块放在 &lt;code&gt;/sites/default/modules&lt;/code&gt; 文件夹下,根本不会加载到其他站点中. 在这种情况下, 一般会建议把自定义模块放在&lt;code&gt;/sites/all/modules/custom&lt;/code&gt; 这个文件夹下.&lt;/p&gt;
+&lt;h2 id=&quot;创建模块文件夹&quot;&gt;&lt;a href=&quot;#创建模块文件夹&quot; class=&quot;headerlink&quot; title=&quot;创建模块文件夹&quot;&gt;&lt;/a&gt;创建模块文件夹&lt;/h2&gt;&lt;p&gt;模块可以以多种途径来进行组织, 但是实践证明, 最好的选择还是得将模块放在 &lt;code&gt;/sites/defualt/modules&lt;/code&gt; 文件夹下,并且模块中至少得有两个文件&lt;code&gt;a.info&lt;/code&gt;以及&lt;code&gt;a.module&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;文件夹,以及文件夹下的.info文件和.module文件,都必须以机读名的方式来命名. 且&lt;code&gt;.info&lt;/code&gt;和&lt;code&gt;.module&lt;/code&gt;文件只能被设定为只读模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;编写.info文件&lt;br&gt;&lt;code&gt;.info&lt;/code&gt; 文件是为Drupal提供信息的文件. 其中的信息包括:模块人读名, 此模块所要请求的其他模块, 以及此模块提供了哪些代码文件.&lt;br&gt;一个&lt;code&gt;.info&lt;/code&gt;文件是一个类似于&lt;code&gt;.ini&lt;/code&gt;标准的控制文件. 在&lt;code&gt;.info&lt;/code&gt;文件中的指令是由: 名称, 等号, 值.这三个元素组成的. 例如:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name = value
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;或者以数组的形式进行申明,例如:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name[] = value1
+name[] = value2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(注意,两个方括号中间没有空格)&lt;/p&gt;
+&lt;p&gt;drupal的编码规范中,在等号两端通常都有一个空格符号.&lt;br&gt;如果一个值的跨度超过一行, 那他应该被包含在一个括号之中.&lt;br&gt;在drupal的ini解释器中,任何以分号开头的代码都将作为注释,被忽略掉.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;编写.module文件&lt;br&gt;&lt;code&gt;.module&lt;/code&gt; 文件一般是一个包含了模块所使用的主要的钩子的PHP文件.&lt;br&gt;下面是一个简单的help钩子的代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// $Id$&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * &lt;span class=&quot;doctag&quot;&gt;@file&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * A module exemplifying Drupal coding practices and APIs.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * This module provides a block that lists all of the&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * installed modules. It illustrates coding standards,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * practices, and API use for Drupal 7.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  * Implements hook_help().&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;first_help&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;($path, $arg)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ($path == &lt;span class=&quot;string&quot;&gt;&#39;admin/help#first&#39;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; t(&lt;span class=&quot;string&quot;&gt;&#39;A demonstration module.&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在上述代码中有以下代码规范:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有的PHP 和 Javascript文件的都使用两格空格来进行缩进, tab是不允许使用在任何代码里.&lt;/li&gt;
+&lt;li&gt;在一个完全的PHP文件代码中,通常是省略结尾部的结束标签代码 ‘?&amp;gt;’. 这是要防止夹杂着的空白来打断HTTP的标头.&lt;/li&gt;
+&lt;li&gt;Drupal 是使用 Doxygen-styel风格来注释(/&lt;em&gt;* &lt;/em&gt;/)方法,类,界面,常亮,文件,全局文件的. #号是不允许使用在注释之中的.&lt;/li&gt;
+&lt;li&gt;在运算符两边必须有一个空格的.&lt;/li&gt;
+&lt;li&gt;所有的控制流程代码都必须包括在大括号之内.即使if的控制流程代码只有一行主体代码,也是需要用大括号包裹起来.&lt;/li&gt;
+&lt;li&gt;方法的命名都是用小写字母以及下划线来分割单词.&lt;/li&gt;
+&lt;li&gt;变量名是使用小写字母以及下划线来分割单词之间的空格的.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;翻译函数 &lt;code&gt;t()&lt;/code&gt; 和翻译&lt;br&gt;翻译函数必须遵循如下写法:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;t(&amp;apos;This is my string&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;不能以下面的方式来写:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$variable = &amp;apos;This is a string&amp;apos;;
+t($variable);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是因为t()函数, 他不执行代码, 只是读取代码.&lt;br&gt;t()函数接受一个可选参数，这是个关联数组. 例如:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$values = array(&amp;apos;@user&amp;apos; =&amp;gt; $username);
+print t(&amp;apos;Welcome, @user&amp;apos;, $values);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这两行代码中,申明@user为占位符,值为变量&lt;code&gt;$username&lt;/code&gt;的值.当&lt;code&gt;t()&lt;/code&gt;函数被调用时, $values的映射将替换掉要被翻译语句中的占位符.&lt;br&gt;如果占位符使用@符号开头, 则Drupal将在插入翻译之前, 对这个值使用&lt;code&gt;check_plain()&lt;/code&gt;方法来进行过滤.&lt;br&gt;如果你确定你的字符串没有任何危险,则可以使用感叹号(!)开头来命名占位符.但这样做,drupal将直接插入这个值,而不进行过滤.这在不需要对你要插入的数据进行翻译的时候,是非常有用的. 像这样写:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$values = array(&amp;apos;!url&amp;apos; =&amp;gt; &amp;apos;http://example.com&amp;apos;);
+print t(&amp;apos;The website can be found at !url&amp;apos;, $values);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;百分号开头的占位符,可以在值插入之前进行安全过滤,并且强制值为文本类型;(用em标签包围),像这样写:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$values = array(&amp;apos;%color&amp;apos; =&amp;gt; &amp;apos;blue&amp;apos;);
+print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=&quot;/2016/03/23/drupal-module-development-2/&quot; title=&quot;下一步 编写自动测试&quot;&gt;下一步 编写自动测试&lt;/a&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;模块命名&quot;&gt;&lt;a href=&quot;#模块命名&quot; class=&quot;headerlink&quot; title=&quot;模块命名&quot;&gt;&lt;/a&gt;模块命名&lt;/h2&gt;&lt;p&gt;Drupal的模块有两个名字,人读名与机读名.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;  人读名: 是由首字母大写的且用空格分开的单词组成,例如:Views, Eldorado Superfly等等.&lt;/p&gt;
+&lt;p&gt;  机读名: 是由小写字母,数字和下划线组成的字符串,且不允许有其他字母.例如上面两个模块的机读名字则应该为:views和eldorado_superfly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;按照惯例这两个名字应该差不多,而且通常应该将大写祖母转化为小写字母.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   

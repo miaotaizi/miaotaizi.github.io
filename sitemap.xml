@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/03/18/hello-world/</loc>
+    <loc>http://yoursite.com/2016/03/23/drupal-module-development-2/</loc>
     
-    <lastmod>2016-03-18T13:35:13.000Z</lastmod>
+    <lastmod>2016-03-29T04:05:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/03/23/drupal-module-development-1/</loc>
+    
+    <lastmod>2016-03-29T04:04:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2016-03-23T16:02:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2016-03-21T12:51:06.000Z</lastmod>
     
   </url>
   
