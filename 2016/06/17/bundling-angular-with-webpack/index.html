@@ -39,7 +39,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Drupal,翻译," />
+  <meta name="keywords" content="翻译,Javascript,AngularJs," />
 
 
 
@@ -57,22 +57,16 @@
 
 
 
-<meta name="description" content="在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, 单元测试 和 功能测试.
-单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.
-大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是">
+<meta name="description" content="最终我们的工程目录结构:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Drupal7模块开发 编写自动测试">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/drupal-module-development-2/index.html">
+<meta property="og:title" content="使用Webpack 构建AngularJs的开发环境">
+<meta property="og:url" content="http://yoursite.com/2016/06/17/bundling-angular-with-webpack/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, 单元测试 和 功能测试.
-单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.
-大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是">
-<meta property="og:updated_time" content="2016-05-20T02:59:59.000Z">
+<meta property="og:description" content="最终我们的工程目录结构:">
+<meta property="og:updated_time" content="2016-06-17T08:03:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Drupal7模块开发 编写自动测试">
-<meta name="twitter:description" content="在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, 单元测试 和 功能测试.
-单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.
-大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是">
+<meta name="twitter:title" content="使用Webpack 构建AngularJs的开发环境">
+<meta name="twitter:description" content="最终我们的工程目录结构:">
 
 
 
@@ -90,7 +84,7 @@
   };
 </script>
 
-  <title> Drupal7模块开发 编写自动测试 | Mr Miao </title>
+  <title> 使用Webpack 构建AngularJs的开发环境 | Mr Miao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -220,7 +214,7 @@
             
             
               
-                Drupal7模块开发 编写自动测试
+                使用Webpack 构建AngularJs的开发环境
               
             
           </h1>
@@ -232,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T23:34:41+08:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-06-17T15:42:59+08:00" content="2016-06-17">
+              2016-06-17
             </time>
           </span>
 
@@ -262,8 +256,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/23/drupal-module-development-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/23/drupal-module-development-2/" itemprop="commentsCount"></span>
+                <a href="/2016/06/17/bundling-angular-with-webpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/17/bundling-angular-with-webpack/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,145 +279,75 @@
       
 
       
-        <p>在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, <em>单元测试</em> 和 <em>功能测试</em>.</p>
-<p>单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.</p>
-<p>大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是为了验证在Drupal中插入的代码是否与预期的功能一样,并且与其他代码相吻合.  这是一个比单元测试更广泛的测试种类.  测试可以精确的测量更大的代码块的准确性.</p>
-<p>测试模块已经默认包含在Drupal7中,但是他是没有被默认启用的.一旦他启用了,你就可以在   Configuration-&gt;Development 找到Testing的配置页面.</p>
-<p>测试应该存在自己的文件中,就像模块的主代码存放在 <code>modulename/modulename.module</code>之中一样,测试文件也应该在<br><code>modulename/modulename.test</code>中,这样测试框架变会自动去检索到它</p>
-<a id="more"></a>
-<h2 id="起步"><a href="#起步" class="headerlink" title="起步:"></a>起步:</h2><p>就像在模块里的其他文件一样,测试文件也必须被写在<code>.info</code>文件当中.所有我们需要加入的文件都必须填写在 <code>.info</code>文件里面的 <code>files</code> 数组之中.</p>
-<pre><code>;$Id$
-name = First
-description = A first module.
-core = 7.x
-package = Drupal 7 Development
-files[] = first.module
-files[] = first.test
-</code></pre><p>每当你的模块安装了之后,Drupal都会去缓存<code>.info</code>文件里面的内容.一旦你在<code>.info</code>文件里面添加了一个新的项目,你就必须去重新访问一下Drupal的模块页面,来强制Drupal重新解析<code>.info</code>文件.<br>(保险起见,这里建议 进入 Configuration-&gt;Development-&gt;Performance 中Clear all caches)</p>
-<h2 id="编写测试部件"><a href="#编写测试部件" class="headerlink" title="编写测试部件:"></a>编写测试部件:</h2><p>大多数部件遵循下面这个简单的样本:</p>
-<ol>
-<li>创建一个继承DrupalWebTestCase 类</li>
-<li>添加一个getInfo() 函数</li>
-<li>在setUp() 方法里面设置一些必要的配置</li>
-<li>以单词test开始来编写一些方法</li>
-<li>在每个测试方法中,为测试的实际值来使用一个或多个声明</li>
-</ol>
-<p>当我们在进行我们自己的测试的时候,我们将按照上面的每一步来测试.</p>
-<pre><code>&lt;?php
-/**
-* @file
-* Tests for the first module
-*/
-class FirstTestCase extends DrupalWebTestCase {
-// Methods will go here.
-}
-</code></pre><p>这个测试部件继承了一个叫做 DrupalWebTestCase的基类. 这个基类为测试提供了许多工具.测试案例不必要陈列或者使用核心逻辑.<br>出于这两种原因,每个Drupal测试必须继承这个基类,或者继承另外一个继承了这个基类的其他类.<br>一旦我们声明了这个类,我们就可以创建我们的第一个方法,<code>getInfo()</code>.</p>
-<blockquote>
-<p>命名约定与类<br>Drupal的function命名都是以小写字母命名的,并且用下划线来分割单词,但是类和方法的命名却不是这样的.类的命名应该以大写字母开头的驼峰式写法,例如”CamelCase”,方法的命名则是以小写字母开头的驼峰试写法,例如 “camelCase”.下划线是不允许出现在类与类方法的名称当中的.</p>
-</blockquote>
-<p>在之前,我们已经看到Drupal使用一些嵌套的数组来传递信息.例如我们之前创建的 <code>first_block_info()</code> 方法就是这样做的.<br>在<code>DrupalWebTestCase::getInfo()</code> 方法里面,同样也是返回一个关联数组.此时返回的信息就是关于这个测试的.</p>
-<pre><code>&lt;?php
-/**
- * @file
- * Tests for the first module
- */
-class FirstTestCase extends DrupalWebTestCase {
-
-    public function setUp() {
-      parent::setUp(&apos;first&apos;);
-    }
-
-    public static function getInfo() {
-      return array(
-        &apos;name&apos; =&gt; &apos;First module block functionality&apos;,
-        &apos;description&apos; =&gt; &apos;Test blocks in the First module&apos;,
-        &apos;group&apos; =&gt; &apos;First&apos;,
-      );
-    }
-}
-</code></pre><p>这个<code>getInfo()</code>方法返回的是一个带有三个项目的数组,这三个项目分别是:</p>
-<ol>
-<li>name: 测试的名称</li>
-<li>description:关于这个测试的一句话描述</li>
-<li>grup:这个测试所属于的组</li>
-</ol>
-<p>这三个项目都是旨在为人类所读取的信息.  前面两个是纯粹的参考信息,第三个是将类似的测试罗列在相同的标题下.<br><code>getInfo()</code>函数看上去是不起眼的,但你的测试必须得包含他,也就是说,如果没有这个函数,你的测试将无法被执行 .</p>
-<h2 id="设置测试"><a href="#设置测试" class="headerlink" title="设置测试:"></a>设置测试:</h2><pre><code>&lt;?php
-/**
-* @file
-* Tests for the first module
-*/
-class FirstTestCase extends DrupalWebTestCase {
-  public function setUp() {
-    parent::setUp(&apos;first&apos;);
-  }
-
-  public function getInfo() {
-    return array(
-      &apos;name&apos; =&gt; &apos;First module block functionality&apos;,
-      &apos;description&apos; =&gt; &apos;Test blocks in the First module.&apos;,
-      &apos;group&apos; =&gt; &apos;First&apos;,
-    );
-  }
-}
-</code></pre><p><code>setUp()</code>方法不是必须的,但当你一旦使用他的时候,你就必须写一行上述代码,就是如下:</p>
-<pre><code>parent::setUp(&apos;first&apos;);
-</code></pre><p>这是告诉<code>setUp()</code>方法去启用存在于<code>DrupalWebTestCase</code>类里面的<code>setUp()</code>方法.<br>这么做的目的,是为了去初始化我们要测试的模块,这也意味着我们不需要去启动我们的模块,来进行测试代码的编写.<br>当你在编写你的测试部件的时候,你也可以在<code>parent::setUp()</code>请求下方编写你自己的配置信息,在之后我们将看到相关例子.</p>
-<h2 id="编写测试方法"><a href="#编写测试方法" class="headerlink" title="编写测试方法:"></a>编写测试方法:</h2><p>测试部件的大多数的方法是测试方法,他们仅仅是用来验证模块是否正常工作.就像你看到的一样,没有任何代码中调用了这些方法.<br>那么简单测试是如何调用我们的方法呢?就像Drupal的钩子约定一样,任何以test开头的方法是会被测试框架自动执行.</p>
-<pre><code>&lt;?php
-/**
- * @file
- * Tests for the first module
- */
-class FirstTestCase extends DrupalWebTestCase {
-    public function setUp() {
-      parent::setUp(&apos;first&apos;);
-    }
-    public static function getInfo() {
-      return array(
-        &apos;name&apos; =&gt; &apos;First module block functionality&apos;,
-        &apos;description&apos; =&gt; &apos;Test blocks in the First module&apos;,
-        &apos;group&apos; =&gt; &apos;First&apos;,
-      );
-    }
-    public function testBlockInfo() {
-      $info = module_invoke(&apos;first&apos;, &apos;block_info&apos;);
-      $this-&gt;assertEqual(1, count($info),
-        t(&apos;Module define a block.&apos;));
-      $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
-        t(&apos;Module list exists.&apos;));
-    }
-    public function testBlockView() {
-      $data = module_invoke(&apos;first&apos;, &apos;block_view&apos;,&apos;list_modules&apos;);
-      $this-&gt;assertTrue(is_array($data),
-        t(&apos;Block returns readerable array.&apos;));
-      $this-&gt;assertEqual(t(&apos;Enabled Modules&apos;), $data[&apos;subject&apos;],
-        t(&apos;Subject is set&apos;));
-    }
-}
-</code></pre><p>上面的代码包含了两个测试的成员方法,就像他们的名字一样,每个方法都是负责之前创建的两个区块方法的测试.<br>他们做了三个事情:<br>首先,他运行了一个叫做 <code>module_invoke()</code>的函数,并且用<code>$info</code>来存储了他的结果.<code>module_invoke()</code>函数主要是用来请求特定的模块里面的特定的钩子. <code>module_invoke()</code>方法有两个参数: 模块的名称,钩子的名称. 类似与<code>module_invoke(&#39;first&#39;,&#39;block_info&#39;)</code>这样的请求就好比在请求<code>first_block_info()</code>钩子,这样做的好处就是能确保他被钩子系统所挂载.为达到我们的预期,我们做了一个成对的断言. 测试框架会有效的验证这些断言,如果方法正如预期,则通过,否则失败.<br>我们先看看 <code>first_block_info()</code> 测试方法<br>这里做了两个测试:</p>
-<pre><code>$this-&gt;assertEqual(1, count($info),
-  t(&apos;Module defines a block.));
-$this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
-  t(&apos;Module list exists.&apos;));
-</code></pre><p>(注意,这些代码都为了格式化,把一行分割成了两行)</p>
-<p>每个断言都有<code>$this-&gt;assertSOMETHING($conditions,$message)</code> 这样的格式,其中 <code>SOMETHING</code>表示断言的种类,<code>$conditions</code> 是断言满足并且可以通过的条件,<code>$message</code>就是一个测试的描述. 在我们的第一个测试中,<code>1</code> 与 <code>count($info)</code> 应该是相等的.断言方法都存在于 <code>DrupalWebTestCase</code>这个父类当中,这个类提供了十几种断言方法来使测试进行的更简单.</p>
-<p>在例子中我们的断言是这样的:</p>
+        <p>最终我们的工程目录结构:<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">--app/</span><br><span class="line">----controllers/</span><br><span class="line">------dashboard.controller.js</span><br><span class="line">----directives/</span><br><span class="line">------yep-nope.directive.js</span><br><span class="line">----services/</span><br><span class="line">------github-status.service.js</span><br><span class="line">----app.js</span><br><span class="line">--js/</span><br><span class="line">----angular.min.js</span><br><span class="line">--index.html</span><br></pre></td></tr></table></figure>
 <ul>
-<li>$this-&gt;assertEqual():第一个值(已知)等于第二值(测试值)的断言.</li>
-<li>$this-&gt;assertTrue():给定结果为TRUE的断言.<br>第一个断言验证了我们在block_info()钩子里面定义的block,第二个断言验证了这个block的名字是否为list_modules.<br>这样,当我们的测试进行的时候,我们就可以确定我们的info钩子是否返回了关于我们的简单的区块的信息.</li>
+<li><p>步骤一<br>  为了达到减少网络请求的目的, 我们希望最终的html文件里面仅存在两个js文件 <code>vendor.bundle.js</code> 和<br>  <code>app.bundle.js</code> 所以咱们可以现在 index.html页面里面引入这两个js文件, 例如:</p>
+<pre><code>&lt;script src=&apos;js/vendor.bundle.js&apos;&gt;&lt;/script&gt;
+&lt;script src=&apos;js/app.bundle.js&apos;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>步骤二: 安装依赖<br>进入项目目录, 进行npm的初始化, 在终端键入 <code>npm init -y</code><br>安装必须的依赖包</p>
+<p>   npm install angular webpack –save-dev</p>
+</li>
+<li><p>步骤三: 配置webpack<br>  在你的项目根目录创建 <code>webpack.config.js</code> 文件<br>  内容如下:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	context: __dirname + <span class="string">'/app'</span>,</span><br><span class="line">	entry: &#123;</span><br><span class="line">		app: <span class="string">'./app.js'</span>,</span><br><span class="line">		vendor: [<span class="string">'angular'</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	output: &#123;</span><br><span class="line">		path: __dirname + <span class="string">'/js'</span>,</span><br><span class="line">		filename: <span class="string">'app.bundle.js'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	plugins: [</span><br><span class="line">			<span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"vendor"</span>, <span class="string">"vendor.bundle.js"</span>)</span><br><span class="line">		]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>  这个文件中主要包含三个关键点<code>context</code>, <code>entry</code>, 和 <code>output</code>.</p>
+<ul>
+<li>context: 项目源文件的绝对路径</li>
+<li>entry: 你的angular应用的主文件. 在这个例子中, 我们设置了一个包含app和vendor键名的对象, 一边产生多个bundle文件.</li>
+<li><p>output: 定义编译后的bundle的文件保存的路径以及文件名.</p>
+<p>这里还有一个<code>plugins</code>选项. 他允许我们将一些第三方的库文件合并为一个js文件. <a href="https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code" target="_blank" rel="external">更多配置</a></p>
+</li>
 </ul>
-<p>再看看<code>first_block_view()</code>的测试.</p>
-<pre><code>public function testBlockView() {
-    $data = module_invoke(&apos;first&apos;, &apos;block_view&apos;,
-        &apos;list_modules&apos;);
-    $this-&gt;assertTrue(is_array($data),
-        t(&apos;Block returns renderable array.&apos;));
-    $this-&gt;assertEqual(t(&apos;Enabled Modules&apos;), $data[&apos;subject&apos;],
-        t(&apos;Subject is set&apos;));
-}
-</code></pre><p>这次我们执行的是 <code>block_view()</code>钩子.并且再次执行了两个断言.第一个断言确认了<code>first_block_view()</code>返回的是否是一个数组.第二个断言验证了他的标题是否与我们预期的一样,为 <code>Enabled Modules</code>.</p>
-<p>编写完毕,我们就可以去 Configuration-&gt; Testing 里面去选中我们的测试,并且运行他了,看看结果吧,你的测试是否都通过了呢!</p>
+</li>
+<li><p>步骤四: 引入模块<br>  如果此时你打包你的代码, webpack只会将<strong>app.js</strong>中的代码打包起来. 那是因为我们并没有在<strong>app.js</strong>里面引入其他代码.<br>  接下来你可以引入任何你需要的代码就像这样:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">...</span><br><span class="line">require(<span class="string">'./directives/yep-nope.controller'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./services/github-status.service'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./controllers/dashboard.controller'</span>);</span><br></pre></td></tr></table></figure>
+<p>  在一些小的项目里面可以这么做, 但在大型的项目中, 这样做并不合适.</p>
+<p>  相比在文件中直接引入一些控制器文件, 我们可以在controllers文件夹内创建一个<strong>index.js</strong>文件. 这个文件将为我们引入所有控制器的入口:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> angular = <span class="built_in">require</span>(<span class="string">'angular'</span>);</span><br><span class="line"></span><br><span class="line">angular.module(<span class="string">'dashboard'</span>)</span><br><span class="line">.controller(<span class="string">'dashboardController'</span>, <span class="built_in">require</span>(<span class="string">'./dashboard.controller'</span>));</span><br></pre></td></tr></table></figure>
+<p>  现在你controller文件夹下面的控制器文件看起来应该是像这样的:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">DashboardController.$inject = [<span class="string">'GithubStatusService'</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DashboardController</span>(<span class="params">gh</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">    _this.github = <span class="string">''</span>;</span><br><span class="line">    gh.getStatus().success(<span class="function"><span class="keyword">function</span>(<span class="params">status</span>) </span>&#123;</span><br><span class="line">        _this.github = status;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = DashboardController;</span><br></pre></td></tr></table></figure>
+<p>  同样, 在directives文件夹中我们也可以这么做. 创建一个<strong>index.js</strong>文件来引导所有的指令. directives文件夹下的<strong>index.js</strong>文件可以这么写</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> angular = <span class="built_in">require</span>(<span class="string">'angular'</span>);</span><br><span class="line"></span><br><span class="line">angular.module(<span class="string">'dashboard'</span>).directive(<span class="string">'yepNope'</span>, <span class="built_in">require</span>(<span class="string">'./yep-nope.directive'</span>));</span><br></pre></td></tr></table></figure>
+<p>  services目录下的<strong>index.js</strong>文件</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> angular = <span class="built_in">require</span>(‘angular’);</span><br><span class="line"></span><br><span class="line">angular.module(‘dashboard’).service(‘GithubStatusService’, <span class="built_in">require</span>(‘./github-status.service’));</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = GithubStatusService;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最后一行应该是 <code>module.exports = GithubStatusService;</code></p>
+</blockquote>
+<p>  最终我们的<strong>app.js</strong>文件仅有这些:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">...</span><br><span class="line">require(<span class="string">'./directives'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./services'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./controllers'</span>);</span><br></pre></td></tr></table></figure>
+<p>  当你的应用越来越大的时候, 你需要添加新的<code>directives</code>,  <code>services</code> , 以及 <code>controllers</code> 你仅需要在<strong>directives/index.js</strong> <strong>services/index.js</strong>, 或者  <strong>controllers/index.js</strong> 中添加你要引入的文件.</p>
+<p>  OK, 我们的angular应用已经准备好了. 接下来就是使用webpack来进行打包了.</p>
+</li>
+<li><p>步骤五: 配置任务</p>
+<pre><code>我们在根目录下的 **package.json** 文件中的`script` 选项中添加任务, 然他来执行webpack, 就像这样.
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line"><span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line"><span class="string">"bundle"</span>: <span class="string">"webpack"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>  在终端中, 你输入命令: <code>npm run bundle</code></p>
+<p>  稍等片刻, 打包完毕之后你会看见:</p>
+<pre><code>angular-webpack@1.0.0 bundle /Users/ken/Projects/angular-webpack
+webpack
+
+Hash: fa17ee9ecec0b19a73ae
+Version: webpack 1.12.12
+Time: 550ms
+Asset Size Chunks Chunk Names
+app.bundle.js 1.42 kB 0 [emitted] app
+vendor.bundle.js 1.12 MB 1 [emitted] vendor
+[0] ./app.js 82 bytes {0} [built]
+[0] multi vendor 28 bytes {1} [built]
+[1] ./services/index.js 145 bytes {0} [built]
+[4] ./services/github-status.service.js 373 bytes {0} [built]
+[5] ./controllers/index.js 147 bytes {0} [built]
+[6] ./controllers/dashboard.controller.js 278 bytes {0} [built]
++ 2 hidden modules
+</code></pre><p>  在浏览器中运行应用</p>
+<pre><code>&gt;&gt; open index.html
+</code></pre><p>  基于webpack的angular开发环境就搭建结束.</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="http://blog.teamtreehouse.com/26017-2" target="_blank" rel="external">原文链接</a><br>翻译水平有限, 如果有看不懂的地方, 可以直接查看<a href="https://github.com/kenhowardpdx/angular-webpack" target="_blank" rel="external">项目源码</a></p>
+</blockquote>
 
       
     </div>
@@ -438,9 +362,11 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
       
         <div class="post-tags">
           
-            <a href="/tags/Drupal/" rel="tag">#Drupal</a>
-          
             <a href="/tags/翻译/" rel="tag">#翻译</a>
+          
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+            <a href="/tags/AngularJs/" rel="tag">#AngularJs</a>
           
         </div>
       
@@ -449,17 +375,13 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/23/drupal-module-development-1/" rel="next" title="Drupal7模块开发 创建第一个模块">
-                <i class="fa fa-chevron-left"></i> Drupal7模块开发 创建第一个模块
+              <a href="/2016/05/20/javascript-extends-demo/" rel="next" title="Javascript 面向对象之继承的实现">
+                <i class="fa fa-chevron-left"></i> Javascript 面向对象之继承的实现
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/20/javascript-extends-demo/" rel="prev" title="Javascript 面向对象之继承的实现">
-                Javascript 面向对象之继承的实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -484,8 +406,8 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/23/drupal-module-development-2/"
-           data-title="Drupal7模块开发 编写自动测试" data-url="http://yoursite.com/2016/03/23/drupal-module-development-2/">
+      <div class="ds-thread" data-thread-key="2016/06/17/bundling-angular-with-webpack/"
+           data-title="使用Webpack 构建AngularJs的开发环境" data-url="http://yoursite.com/2016/06/17/bundling-angular-with-webpack/">
       </div>
     
   </div>
@@ -588,7 +510,7 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起步"><span class="nav-number">1.</span> <span class="nav-text">起步:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写测试部件"><span class="nav-number">2.</span> <span class="nav-text">编写测试部件:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置测试"><span class="nav-number">3.</span> <span class="nav-text">设置测试:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写测试方法"><span class="nav-number">4.</span> <span class="nav-text">编写测试方法:</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
