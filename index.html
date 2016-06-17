@@ -301,12 +301,11 @@
 <ul>
 <li>context: 项目源文件的绝对路径</li>
 <li>entry: 你的angular应用的主文件. 在这个例子中, 我们设置了一个包含app和vendor键名的对象, 一边产生多个bundle文件.</li>
-<li>output: 定义编译后的bundle的文件保存的路径以及文件名.</li>
-</ul>
+<li><p>output: 定义编译后的bundle的文件保存的路径以及文件名.</p>
+<p>这里还有一个<strong>plugins</strong>选项. 他允许我们将一些第三方的库文件合并为一个js文件. <a href="https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code" target="_blank" rel="external">更多配置</a></p>
 </li>
 </ul>
-<p>这里还有一个<strong>plugins</strong>选项. 他允许我们将一些第三方的库文件合并为一个js文件. <a href="https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code" target="_blank" rel="external">更多配置</a></p>
-<ul>
+</li>
 <li><p>步骤四: 引入模块<br>  如果此时你打包你的代码, webpack只会将<strong>app.js</strong>中的代码打包起来. 那是因为我们并没有在<strong>app.js</strong>里面引入其他代码.<br>  接下来你可以引入任何你需要的代码就像这样:</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">...</span><br><span class="line">require(<span class="string">'./directives/yep-nope.controller'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./services/github-status.service'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./controllers/dashboard.controller'</span>);</span><br></pre></td></tr></table></figure>
 <p>  在一些小的项目里面可以这么做, 但在大型的项目中, 这样做并不合适.</p>

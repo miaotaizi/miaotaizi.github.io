@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-17T08:15:13.000Z</updated>
+  <updated>2016-06-17T08:17:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/06/17/bundling-angular-with-webpack/"/>
     <id>http://yoursite.com/2016/06/17/bundling-angular-with-webpack/</id>
     <published>2016-06-17T07:42:59.000Z</published>
-    <updated>2016-06-17T08:15:13.000Z</updated>
+    <updated>2016-06-17T08:17:27.000Z</updated>
     
     <content type="html">&lt;p&gt;最终我们的工程目录结构:&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;project/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--app/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----controllers/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------dashboard.controller.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----directives/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------yep-nope.directive.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----services/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------github-status.service.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----app.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--js/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----angular.min.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--index.html&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -38,12 +38,11 @@
 &lt;ul&gt;
 &lt;li&gt;context: 项目源文件的绝对路径&lt;/li&gt;
 &lt;li&gt;entry: 你的angular应用的主文件. 在这个例子中, 我们设置了一个包含app和vendor键名的对象, 一边产生多个bundle文件.&lt;/li&gt;
-&lt;li&gt;output: 定义编译后的bundle的文件保存的路径以及文件名.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;output: 定义编译后的bundle的文件保存的路径以及文件名.&lt;/p&gt;
+&lt;p&gt;这里还有一个&lt;strong&gt;plugins&lt;/strong&gt;选项. 他允许我们将一些第三方的库文件合并为一个js文件. &lt;a href=&quot;https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更多配置&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这里还有一个&lt;strong&gt;plugins&lt;/strong&gt;选项. 他允许我们将一些第三方的库文件合并为一个js文件. &lt;a href=&quot;https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更多配置&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;步骤四: 引入模块&lt;br&gt;  如果此时你打包你的代码, webpack只会将&lt;strong&gt;app.js&lt;/strong&gt;中的代码打包起来. 那是因为我们并没有在&lt;strong&gt;app.js&lt;/strong&gt;里面引入其他代码.&lt;br&gt;  接下来你可以引入任何你需要的代码就像这样:&lt;/p&gt;
   &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// app.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;require(&lt;span class=&quot;string&quot;&gt;&#39;./directives/yep-nope.controller&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./services/github-status.service&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./controllers/dashboard.controller&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;  在一些小的项目里面可以这么做, 但在大型的项目中, 这样做并不合适.&lt;/p&gt;
@@ -88,11 +87,11 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -286,9 +285,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -371,9 +370,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
