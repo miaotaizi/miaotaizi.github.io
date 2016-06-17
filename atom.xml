@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-17T08:03:49.000Z</updated>
+  <updated>2016-06-17T08:15:13.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/06/17/bundling-angular-with-webpack/"/>
     <id>http://yoursite.com/2016/06/17/bundling-angular-with-webpack/</id>
     <published>2016-06-17T07:42:59.000Z</published>
-    <updated>2016-06-17T08:03:49.000Z</updated>
+    <updated>2016-06-17T08:15:13.000Z</updated>
     
-    <content type="html">&lt;p&gt;最终我们的工程目录结构:&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;最终我们的工程目录结构:&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;project/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--app/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----controllers/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------dashboard.controller.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----directives/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------yep-nope.directive.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----services/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------github-status.service.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----app.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--js/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----angular.min.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--index.html&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;步骤一&lt;br&gt;  为了达到减少网络请求的目的, 我们希望最终的html文件里面仅存在两个js文件 &lt;code&gt;vendor.bundle.js&lt;/code&gt; 和&lt;br&gt;  &lt;code&gt;app.bundle.js&lt;/code&gt; 所以咱们可以现在 index.html页面里面引入这两个js文件, 例如:&lt;/p&gt;
@@ -30,7 +30,7 @@
 &amp;lt;script src=&amp;apos;js/app.bundle.js&amp;apos;&amp;gt;&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;步骤二: 安装依赖&lt;br&gt;进入项目目录, 进行npm的初始化, 在终端键入 &lt;code&gt;npm init -y&lt;/code&gt;&lt;br&gt;安装必须的依赖包&lt;/p&gt;
-&lt;p&gt;   npm install angular webpack –save-dev&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install angular webpack --save-dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;步骤三: 配置webpack&lt;br&gt;  在你的项目根目录创建 &lt;code&gt;webpack.config.js&lt;/code&gt; 文件&lt;br&gt;  内容如下:&lt;/p&gt;
   &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; webpack = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;webpack&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	context: __dirname + &lt;span class=&quot;string&quot;&gt;&#39;/app&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	entry: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		app: &lt;span class=&quot;string&quot;&gt;&#39;./app.js&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		vendor: [&lt;span class=&quot;string&quot;&gt;&#39;angular&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	output: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		path: __dirname + &lt;span class=&quot;string&quot;&gt;&#39;/js&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		filename: &lt;span class=&quot;string&quot;&gt;&#39;app.bundle.js&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	plugins: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; webpack.optimize.CommonsChunkPlugin(&lt;span class=&quot;string&quot;&gt;&quot;vendor&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;vendor.bundle.js&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -38,11 +38,12 @@
 &lt;ul&gt;
 &lt;li&gt;context: 项目源文件的绝对路径&lt;/li&gt;
 &lt;li&gt;entry: 你的angular应用的主文件. 在这个例子中, 我们设置了一个包含app和vendor键名的对象, 一边产生多个bundle文件.&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;output: 定义编译后的bundle的文件保存的路径以及文件名.&lt;/p&gt;
-&lt;p&gt;这里还有一个&lt;code&gt;plugins&lt;/code&gt;选项. 他允许我们将一些第三方的库文件合并为一个js文件. &lt;a href=&quot;https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更多配置&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;output: 定义编译后的bundle的文件保存的路径以及文件名.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里还有一个&lt;strong&gt;plugins&lt;/strong&gt;选项. 他允许我们将一些第三方的库文件合并为一个js文件. &lt;a href=&quot;https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更多配置&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;步骤四: 引入模块&lt;br&gt;  如果此时你打包你的代码, webpack只会将&lt;strong&gt;app.js&lt;/strong&gt;中的代码打包起来. 那是因为我们并没有在&lt;strong&gt;app.js&lt;/strong&gt;里面引入其他代码.&lt;br&gt;  接下来你可以引入任何你需要的代码就像这样:&lt;/p&gt;
   &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// app.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;require(&lt;span class=&quot;string&quot;&gt;&#39;./directives/yep-nope.controller&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./services/github-status.service&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./controllers/dashboard.controller&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;  在一些小的项目里面可以这么做, 但在大型的项目中, 这样做并不合适.&lt;/p&gt;
@@ -62,32 +63,16 @@
 &lt;p&gt;  当你的应用越来越大的时候, 你需要添加新的&lt;code&gt;directives&lt;/code&gt;,  &lt;code&gt;services&lt;/code&gt; , 以及 &lt;code&gt;controllers&lt;/code&gt; 你仅需要在&lt;strong&gt;directives/index.js&lt;/strong&gt; &lt;strong&gt;services/index.js&lt;/strong&gt;, 或者  &lt;strong&gt;controllers/index.js&lt;/strong&gt; 中添加你要引入的文件.&lt;/p&gt;
 &lt;p&gt;  OK, 我们的angular应用已经准备好了. 接下来就是使用webpack来进行打包了.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;步骤五: 配置任务&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;我们在根目录下的 **package.json** 文件中的`script` 选项中添加任务, 然他来执行webpack, 就像这样.
-&lt;/code&gt;&lt;/pre&gt;  &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;bundle&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;webpack&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;li&gt;&lt;p&gt;步骤五: 配置任务&lt;br&gt;  我们在根目录下的 &lt;strong&gt;package.json&lt;/strong&gt; 文件中的&lt;code&gt;script&lt;/code&gt; 选项中添加任务, 然他来执行webpack, 就像这样.&lt;/p&gt;
+  &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;bundle&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;webpack&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;  在终端中, 你输入命令: &lt;code&gt;npm run bundle&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;  稍等片刻, 打包完毕之后你会看见:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;angular-webpack@1.0.0 bundle /Users/ken/Projects/angular-webpack
-webpack
-
-Hash: fa17ee9ecec0b19a73ae
-Version: webpack 1.12.12
-Time: 550ms
-Asset Size Chunks Chunk Names
-app.bundle.js 1.42 kB 0 [emitted] app
-vendor.bundle.js 1.12 MB 1 [emitted] vendor
-[0] ./app.js 82 bytes {0} [built]
-[0] multi vendor 28 bytes {1} [built]
-[1] ./services/index.js 145 bytes {0} [built]
-[4] ./services/github-status.service.js 373 bytes {0} [built]
-[5] ./controllers/index.js 147 bytes {0} [built]
-[6] ./controllers/dashboard.controller.js 278 bytes {0} [built]
-+ 2 hidden modules
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  在浏览器中运行应用&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;angular-webpack@1.0.0 bundle /Users/ken/Projects/angular-webpack&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;webpack&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Hash: fa17ee9ecec0b19a73ae&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Version: webpack 1.12.12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Time: 550ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Asset Size Chunks Chunk Names&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app.bundle.js 1.42 kB 0 [emitted] app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vendor.bundle.js 1.12 MB 1 [emitted] vendor&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[0] ./app.js 82 bytes &amp;#123;0&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[0] multi vendor 28 bytes &amp;#123;1&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[1] ./services/index.js 145 bytes &amp;#123;0&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[4] ./services/github-status.service.js 373 bytes &amp;#123;0&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[5] ./controllers/index.js 147 bytes &amp;#123;0&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[6] ./controllers/dashboard.controller.js 278 bytes &amp;#123;0&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ 2 hidden modules&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  在浏览器中运行应用&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; open index.html
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  基于webpack的angular开发环境就搭建结束.&lt;/p&gt;
-&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;基于webpack的angular开发环境就搭建结束.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;http://blog.teamtreehouse.com/26017-2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文链接&lt;/a&gt;&lt;br&gt;翻译水平有限, 如果有看不懂的地方, 可以直接查看&lt;a href=&quot;https://github.com/kenhowardpdx/angular-webpack&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目源码&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -95,18 +80,19 @@ vendor.bundle.js 1.12 MB 1 [emitted] vendor
     
     <summary type="html">
     
-      &lt;p&gt;最终我们的工程目录结构:&lt;br&gt;
+      &lt;p&gt;最终我们的工程目录结构:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/
     
     </summary>
     
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -300,9 +286,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
-    
       <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
     
   </entry>
   
@@ -385,9 +371,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
-    
       <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
     
   </entry>
   
