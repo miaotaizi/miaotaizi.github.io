@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-21T01:08:35.000Z</updated>
+  <updated>2016-06-21T01:12:37.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/06/17/bundling-angular-with-webpack/"/>
     <id>http://yoursite.com/2016/06/17/bundling-angular-with-webpack/</id>
     <published>2016-06-17T07:42:59.000Z</published>
-    <updated>2016-06-21T01:08:35.000Z</updated>
+    <updated>2016-06-21T01:12:37.000Z</updated>
     
     <content type="html">&lt;p&gt;最终我们的工程目录结构:&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -87,11 +87,11 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -285,9 +285,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -370,9 +370,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
