@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-04T09:02:50.000Z</updated>
+  <updated>2016-08-04T09:32:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/"/>
     <id>http://yoursite.com/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/</id>
     <published>2016-08-04T05:48:36.000Z</published>
-    <updated>2016-08-04T09:02:50.000Z</updated>
+    <updated>2016-08-04T09:32:41.000Z</updated>
     
     <content type="html">&lt;p&gt;此文章主要介绍如何使用宿主机器中的PhpStorm配置vagrant环境中的phpunit来进行单元测试.&lt;/p&gt;
 &lt;h2 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h2&gt;&lt;ul&gt;
@@ -32,6 +32,9 @@
 &lt;p&gt;然后就可以使用工具栏中的vagrant来管理对应的虚拟机了, 详见工具栏: &lt;strong&gt;&lt;em&gt; Tools -&amp;gt; Vagrant &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;img src=&quot;/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-1-2.png&quot; alt=&quot;使用phpstorm管理vagrant&quot; title=&quot;使用phpstorm管理vagrant&quot;&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;配置好phpstorm中的php解释器   &lt;strong&gt;&lt;em&gt; 进入下面的页面添加php解释器 &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;img src=&quot;/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-1.png&quot; alt=&quot;添加php解释器&quot; title=&quot;添加php解释器&quot;&gt;
 &lt;img src=&quot;/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-2.png&quot; alt=&quot;选择添加remote解释器&quot; title=&quot;选择添加remote解释器&quot;&gt;
@@ -83,6 +86,15 @@
     
       &lt;p&gt;此文章主要介绍如何使用宿主机器中的PhpStorm配置vagrant环境中的phpunit来进行单元测试.&lt;/p&gt;
 &lt;h2 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;将phpstorm跟项目所在的vagrant虚拟机做关联:&lt;br&gt;依次进入 &lt;strong&gt;&lt;em&gt; Settings -&amp;gt; Tools -&amp;gt; Vagrant &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&quot;/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-1.png&quot; alt=&quot;关联vagrant&quot; title=&quot;关联vagrant&quot;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意配置好红框里面的本地vagrant环境变量以及对应的vagrant虚拟机目录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后就可以使用工具栏中的vagrant来管理对应的虚拟机了, 详见工具栏: &lt;strong&gt;&lt;em&gt; Tools -&amp;gt; Vagrant &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&quot;/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-1-2.png&quot; alt=&quot;使用phpstorm管理vagrant&quot; title=&quot;使用phpstorm管理vagrant&quot;&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -171,11 +183,11 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -369,9 +381,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -454,9 +466,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
