@@ -216,6 +216,175 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/" itemprop="url">
+                  使用PhpStorm在vagrant环境下配置phpunit进行单元测试
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-04T13:48:36+08:00" content="2016-08-04">
+              2016-08-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/04/phpunit-test-in-phpstorm-and-vagrant/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>此文章主要介绍如何使用宿主机器中的PhpStorm配置vagrant环境中的phpunit来进行单元测试.</p>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul>
+<li><p>将phpstorm跟项目所在的vagrant虚拟机做关联:<br>依次进入 <strong><em> Settings -&gt; Tools -&gt; Vagrant </em></strong></p>
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-1.png" alt="关联vagrant" title="关联vagrant">
+<blockquote>
+<p>注意配置好红框里面的本地vagrant环境变量以及对应的vagrant虚拟机目录</p>
+</blockquote>
+<p>然后就可以使用工具栏中的vagrant来管理对应的虚拟机了, 详见工具栏: <strong><em> Tools -&gt; Vagrant </em></strong></p>
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-1-2.png" alt="使用phpstorm管理vagrant" title="使用phpstorm管理vagrant">
+</li>
+<li><p>配置好phpstorm中的php解释器   <strong><em> 进入下面的页面添加php解释器 </em></strong></p>
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-1.png" alt="添加php解释器" title="添加php解释器">
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-2.png" alt="选择添加remote解释器" title="选择添加remote解释器">
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-3.png" alt="设置vagrant虚拟机的php解释器" title="设置vagrant虚拟机的php解释器">
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-5.png" alt="设置宿主机与vagrant虚拟机之间的目录映射" title="设置宿主机与vagrant虚拟机之间的目录映射">
+<blockquote>
+<p>注意设置好宿主机与vagrant虚拟机之间的目录映射关系.</p>
+</blockquote>
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-2-4.png" alt="配置完全" title="配置完全">
+<blockquote>
+<p>配置完全之后, php的解释器就如上图所示, 注意将 <strong><em> PHP language level </em></strong> 与你配置的解释器版本对应好.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="配置PHPUnit"><a href="#配置PHPUnit" class="headerlink" title="配置PHPUnit"></a>配置PHPUnit</h2><ul>
+<li><p>进入 <strong><em> Settings -&gt; Language &amp; Frameworks -&gt; PHP -&gt; PHPUnit </em></strong> 远程PHPUnit解释器</p>
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-3-1.png" alt="配置远程PHPUnit解释器" title="配置远程PHPUnit解释器">
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-3-2.png" alt="选择刚才配置的远程PHP解释器" title="选择刚才配置的远程PHP解释器">
+<img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-3-3.png" alt="配置PHPUnit相关选项" title="配置PHPUnit相关选项">
+<blockquote>
+<p>注意选好对应的PHPUnit类库, 通常是选择 <strong><em> Use custom autoloader </em></strong> 或者 <strong><em> phpunit.phar </em></strong></p>
+<ul>
+<li>选择 <strong><em>autoloader</em></strong> 的时候, 我们将对应的 <strong><em>path</em></strong> 设置成 <strong><em>vender</em></strong> 目录中的 <strong><em>autoloader.php</em></strong> 文件<br>并且在项目中使用 <strong><em>composer</em></strong> 安装好相应的 <strong><em>PHPUnti</em></strong> 扩展即可.</li>
+<li>选择 <strong><em>phpunit.phar</em></strong> 需将 <strong><em>Path</em></strong> 设置为 <strong><em>vagrant</em></strong> 虚拟机中安装好的 <strong><em>PHPUnit</em></strong> 扩展路径.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="配置测试目录"><a href="#配置测试目录" class="headerlink" title="配置测试目录"></a>配置测试目录</h2>  <img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-4-1.png" alt="编辑测试配置" title="编辑测试配置">
+<blockquote>
+<p>点击工具栏 <strong><em> Run -&gt; Edit Configuration </em></strong> 进行相应配置</p>
+</blockquote>
+  <img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-4-2.png" alt="添加PHPUnit配置" title="添加PHPUnit配置">
+<blockquote>
+<p>添加PHPUnit配置</p>
+</blockquote>
+  <img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-4-3.png" alt="配置PHPUnit相关选项" title="配置PHPUnit相关选项">
+<blockquote>
+<p>设置好要测试的文件夹或者文件</p>
+</blockquote>
+  <img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-4-4.png" alt="点击执行测试" title="点击执行测试">
+  <img src="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/step-4-5.png" alt="执行完毕的结果" title="执行完毕的结果">
+<blockquote>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://phpunit.de/manual/current/zh_cn/installation.html" target="_blank" rel="external">PHPUnit手册</a><br><a href="https://confluence.jetbrains.com/display/PhpStorm/Testing+PHP+Applications" target="_blank" rel="external">PhpStorm中测试应用</a><br><a href="https://confluence.jetbrains.com/display/PhpStorm/Getting+started+with+Vagrant+in+PhpStorm" target="_blank" rel="external">在PhpStorm中管理vagrant</a><br><a href="https://confluence.jetbrains.com/display/PhpStorm/Running+PHPUnit+tests+over+SSH+on+a+remote+server+with+PhpStorm#RunningPHPUnittestsoverSSHonaremoteserverwithPhpStorm-PHPUnit" target="_blank" rel="external">使用PhpStorm在远程服务器上执行PHPUnit测试</a><br><a href="http://symfony.com/doc/current/testing.html" target="_blank" rel="external">Symfony测试文档</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/17/bundling-angular-with-webpack/" itemprop="url">
                   使用Webpack 构建AngularJs的开发环境
                 </a>
@@ -717,7 +886,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -725,7 +894,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -734,7 +903,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
