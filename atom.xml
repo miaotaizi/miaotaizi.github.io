@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-28T14:55:54.000Z</updated>
+  <updated>2016-10-01T15:07:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Symfony框架之FOSUserBundle挂载到控制器</title>
+    <link href="http://yoursite.com/2016/10/01/fosuserbundle-hooking-into-the-controller/"/>
+    <id>http://yoursite.com/2016/10/01/fosuserbundle-hooking-into-the-controller/</id>
+    <published>2016-10-01T15:05:11.000Z</published>
+    <updated>2016-10-01T15:07:17.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过FOSUserBundle包装过的控制器提供了一些能够满足一般需要的功能. 不过你可能需要在你的应用中扩展这些功能, 并且加入你自己的业务逻辑.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;出于此目的, 控制器在他们的逻辑中的多个地方触发了一些事件. 所有的事件都能在&lt;code&gt;FOS\UserBundle\FOSUserEvents&lt;/code&gt;类中的常量找到.&lt;/p&gt;
+&lt;p&gt;所有的控制器都遵循一个约定: 他们会在表单验证之后保存用户数据之前触发一个&lt;code&gt;SUCCESS&lt;/code&gt;事件, 并且在保存用户数据之后触发一个&lt;code&gt;COMPLETED&lt;/code&gt;事件.因此你不想使用默认的重定向, 你可以在所有的&lt;code&gt;SUCCESS&lt;/code&gt;事件之后你可以设置一个响应. 所有的&lt;code&gt;COMPLETED&lt;/code&gt;事件允许你在控制器返回之前设置一个响应.&lt;/p&gt;
+&lt;p&gt;带表单的控制器在实体加载完毕之后通常会触发一个&lt;code&gt;INITIALIZE&lt;/code&gt;事件, 而不是在表单创建之后.&lt;/p&gt;
+&lt;p&gt;例如,下面这个监听器会在重置密码之后跳转到homepage, 而不是profile页面:&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// src/Acme/UserBundle/EventListener/PasswordResettingListener.php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Acme&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;EventListener&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FOS&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;FOSUserEvents&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FOS&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Event&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;FormEvent&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;EventDispatcher&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;EventSubscriberInterface&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;HttpFoundation&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;RedirectResponse&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Routing&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Generator&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UrlGeneratorInterface&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * Listener responsible to change the redirection at the end of the password resetting&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;PasswordResettingListener&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;EventSubscriberInterface&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; $router;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(UrlGeneratorInterface $router)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $this-&amp;gt;router = $router;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &amp;#123;&lt;span class=&quot;doctag&quot;&gt;@inheritdoc&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getSubscribedEvents&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            FOSUserEvents::RESETTING_RESET_SUCCESS =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;onPasswordResettingSuccess&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onPasswordResettingSuccess&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(FormEvent $event)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $url = $this-&amp;gt;router-&amp;gt;generate(&lt;span class=&quot;string&quot;&gt;&#39;homepage&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $event-&amp;gt;setResponse(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; RedirectResponse($url));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后你可以在配置中注册这个监听器:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# src/Acme/UserBundle/Resources/config/services.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;services:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    acme_user.password_resetting:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        class: Acme\UserBundle\EventListener\PasswordResettingListener&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        arguments: [&amp;apos;@router&amp;apos;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        tags:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            - &amp;#123; name: kernel.event_subscriber &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过FOSUserBundle包装过的控制器提供了一些能够满足一般需要的功能. 不过你可能需要在你的应用中扩展这些功能, 并且加入你自己的业务逻辑.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
+    
+      <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+  </entry>
   
   <entry>
     <title>Symfony框架之重写FOSUserBundle的默认模板</title>
@@ -82,7 +124,7 @@
     <link href="http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/"/>
     <id>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</id>
     <published>2016-09-15T12:33:03.000Z</published>
-    <updated>2016-09-28T15:00:06.000Z</updated>
+    <updated>2016-10-01T15:08:37.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&lt;/a&gt;&lt;/p&gt;
@@ -157,7 +199,7 @@
 &lt;p&gt;若使用的是MongoDB, 你则需要执行下面命令来创建索引.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console doctrine:mongodb:schema:create --index&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;现在你可以在&lt;code&gt;http://app.com/app_dev.php/login&lt;/code&gt;地址中登录了.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;挂载到控制器&lt;/a&gt;(待翻译)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;(待翻译)&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -349,11 +391,11 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -547,9 +589,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -632,9 +674,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
