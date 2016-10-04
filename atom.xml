@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-01T15:07:17.000Z</updated>
+  <updated>2016-10-04T13:54:43.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Symfony框架之重写FOSUserBundle的默认控制器</title>
+    <link href="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/"/>
+    <id>http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/</id>
+    <published>2016-10-04T13:49:41.000Z</published>
+    <updated>2016-10-04T13:54:43.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;重写控制器需要复制所有的action逻辑. 大多数情况下使用事件来实现功能会更简单一些. 只有在没有其他办法的情况下才会考虑重写控制器.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重写控制器的第一步是创建一个继承FOSUserBundle的子bundle. 下面的代码片段定义了一个名为&lt;code&gt;AcmeUserBundle&lt;/code&gt;的继承自FOSUserBundle的子bundle.&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// src/Acme/UserBundle/AcmeUserBundle.php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Acme&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;HttpKernel&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Bundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Bundle&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;AcmeUserBundle&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Bundle&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getParent&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;FOSUserBundle&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Symfony框架只中每个bundle只能有一个子bundle. 这意味着你不能再创建另外一个继承自FOSUserBundle的子bundle.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在你已经创建了一个新的子bundle, 你可以创建一个与你想重写的控制器路径以及名称相同的控制器类. 在这个例子中,通过扩展FOSUserBundle中的&lt;code&gt;RegistrationController&lt;/code&gt;类来实现对&lt;code&gt;RegistrationController&lt;/code&gt;的方法中额外的功能的重写.&lt;br&gt;下面的例子中重写了&lt;code&gt;registerAction&lt;/code&gt;方法. 它使用了base 控制器的代码并且添加了新用户登录的逻辑.&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// src/Acme/UserBundle/Controller/RegistrationController.php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Acme&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Controller&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;HttpFoundation&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;RedirectResponse&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FOS&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Controller&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;RegistrationController&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BaseController&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;HttpFoundation&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Request&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;RegistrationController&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BaseController&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;registerAction&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Request $request)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $form = $this-&amp;gt;container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;fos_user.registration.form&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $formHandler = $this-&amp;gt;container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;fos_user.registration.form.handler&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $confirmationEnabled = $this-&amp;gt;container-&amp;gt;getParameter(&lt;span class=&quot;string&quot;&gt;&#39;fos_user.registration.confirmation.enabled&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $process = $formHandler-&amp;gt;process($confirmationEnabled);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ($process) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $user = $form-&amp;gt;getData();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/*****************************************************&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             * Add new functionality (e.g. log the registration) *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             *****************************************************/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $this-&amp;gt;container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;logger&#39;&lt;/span&gt;)-&amp;gt;info(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                sprintf(&lt;span class=&quot;string&quot;&gt;&#39;New user registration: %s&#39;&lt;/span&gt;, $user)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ($confirmationEnabled) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $this-&amp;gt;container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;session&#39;&lt;/span&gt;)-&amp;gt;set(&lt;span class=&quot;string&quot;&gt;&#39;fos_user_send_confirmation_email/email&#39;&lt;/span&gt;, $user-&amp;gt;getEmail());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $route = &lt;span class=&quot;string&quot;&gt;&#39;fos_user_registration_check_email&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $this-&amp;gt;authenticateUser($user);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $route = &lt;span class=&quot;string&quot;&gt;&#39;fos_user_registration_confirmed&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $this-&amp;gt;setFlash(&lt;span class=&quot;string&quot;&gt;&#39;fos_user_success&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;registration.flash.user_created&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $url = $this-&amp;gt;container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;router&#39;&lt;/span&gt;)-&amp;gt;generate($route);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; RedirectResponse($url);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; $this-&amp;gt;container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;templating&#39;&lt;/span&gt;)-&amp;gt;renderResponse(&lt;span class=&quot;string&quot;&gt;&#39;FOSUserBundle:Registration:register.html.twig&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;string&quot;&gt;&#39;form&#39;&lt;/span&gt; =&amp;gt; $form-&amp;gt;createView(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果在你想重写时不继承FOSUserBundle控制器类而是继承自FrameworkBundle提供的容器或者控制器, 那你就必须实现FOSUserBundle 的控制器所有的方法.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
+    
+      <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+  </entry>
   
   <entry>
     <title>Symfony框架之FOSUserBundle挂载到控制器</title>
@@ -124,7 +172,7 @@
     <link href="http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/"/>
     <id>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</id>
     <published>2016-09-15T12:33:03.000Z</published>
-    <updated>2016-10-01T15:08:37.000Z</updated>
+    <updated>2016-10-04T13:54:01.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&lt;/a&gt;&lt;/p&gt;
@@ -199,7 +247,7 @@
 &lt;p&gt;若使用的是MongoDB, 你则需要执行下面命令来创建索引.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console doctrine:mongodb:schema:create --index&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;现在你可以在&lt;code&gt;http://app.com/app_dev.php/login&lt;/code&gt;地址中登录了.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;(待翻译)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;(待翻译)&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -391,11 +439,11 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -589,9 +637,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
-    
       <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
     
   </entry>
   
@@ -674,9 +722,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
-    
       <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
     
   </entry>
   

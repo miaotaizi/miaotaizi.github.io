@@ -39,7 +39,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="翻译,Drupal," />
+  <meta name="keywords" content="翻译,PHP,Symfony,FOSUserBundle," />
 
 
 
@@ -57,28 +57,22 @@
 
 
 
-<meta name="description" content="Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.
+<meta name="description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
 
-模块命名Drupal的模块有两个名字,人读名与机读名.
-
-  人读名: 是由首字母大写的且用空格分开的单词组成,例如">
+FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Drupal7模块开发 创建第一个模块">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/drupal-module-development-1/index.html">
+<meta property="og:title" content="Symfony框架之重写FOSUserBundle的默认控制器">
+<meta property="og:url" content="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.
+<meta property="og:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
 
-模块命名Drupal的模块有两个名字,人读名与机读名.
-
-  人读名: 是由首字母大写的且用空格分开的单词组成,例如">
-<meta property="og:updated_time" content="2016-03-29T04:04:01.000Z">
+FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
+<meta property="og:updated_time" content="2016-10-04T13:54:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Drupal7模块开发 创建第一个模块">
-<meta name="twitter:description" content="Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.
+<meta name="twitter:title" content="Symfony框架之重写FOSUserBundle的默认控制器">
+<meta name="twitter:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
 
-模块命名Drupal的模块有两个名字,人读名与机读名.
-
-  人读名: 是由首字母大写的且用空格分开的单词组成,例如">
+FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
 
 
 
@@ -96,7 +90,7 @@
   };
 </script>
 
-  <title> Drupal7模块开发 创建第一个模块 | Mr Miao </title>
+  <title> Symfony框架之重写FOSUserBundle的默认控制器 | Mr Miao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -226,7 +220,7 @@
             
             
               
-                Drupal7模块开发 创建第一个模块
+                Symfony框架之重写FOSUserBundle的默认控制器
               
             
           </h1>
@@ -238,8 +232,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T22:00:16+08:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-10-04T21:49:41+08:00" content="2016-10-04">
+              2016-10-04
             </time>
           </span>
 
@@ -268,8 +262,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/23/drupal-module-development-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/23/drupal-module-development-1/" itemprop="commentsCount"></span>
+                <a href="/2016/10/04/fosuserbundle-overriding-default-controllers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -292,58 +286,22 @@
 
       
         <blockquote>
-<p>Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.</p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html</a></p>
 </blockquote>
-<h2 id="模块命名"><a href="#模块命名" class="headerlink" title="模块命名"></a>模块命名</h2><p>Drupal的模块有两个名字,人读名与机读名.</p>
+<p>FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.<br><a id="more"></a></p>
 <blockquote>
-<p>  人读名: 是由首字母大写的且用空格分开的单词组成,例如:Views, Eldorado Superfly等等.</p>
-<p>  机读名: 是由小写字母,数字和下划线组成的字符串,且不允许有其他字母.例如上面两个模块的机读名字则应该为:views和eldorado_superfly.</p>
+<p>重写控制器需要复制所有的action逻辑. 大多数情况下使用事件来实现功能会更简单一些. 只有在没有其他办法的情况下才会考虑重写控制器.</p>
 </blockquote>
-<p>按照惯例这两个名字应该差不多,而且通常应该将大写祖母转化为小写字母.</p>
-<a id="more"></a>
-<h2 id="模块存放位置"><a href="#模块存放位置" class="headerlink" title="模块存放位置"></a>模块存放位置</h2><p>Drupal 的自定义模块通常是用来存放在 <code>/sites/default/modules</code> 文件夹下面, 这样做的好处是可以与标准模块分开,以便更容易找到自己没有整理的杂乱的代码.</p>
-<p>Drupal中自定义模块如果放在 <code>/sites/default</code> 文件夹中, 只能被默认站点所加载. 这意味着, 在实践中如果把模块放在 <code>/sites/default/modules</code> 文件夹下,根本不会加载到其他站点中. 在这种情况下, 一般会建议把自定义模块放在<code>/sites/all/modules/custom</code> 这个文件夹下.</p>
-<h2 id="创建模块文件夹"><a href="#创建模块文件夹" class="headerlink" title="创建模块文件夹"></a>创建模块文件夹</h2><p>模块可以以多种途径来进行组织, 但是实践证明, 最好的选择还是得将模块放在 <code>/sites/defualt/modules</code> 文件夹下,并且模块中至少得有两个文件<code>a.info</code>以及<code>a.module</code></p>
-<p>文件夹,以及文件夹下的.info文件和.module文件,都必须以机读名的方式来命名. 且<code>.info</code>和<code>.module</code>文件只能被设定为只读模式</p>
-<ul>
-<li><p>编写.info文件<br><code>.info</code> 文件是为Drupal提供信息的文件. 其中的信息包括:模块人读名, 此模块所要请求的其他模块, 以及此模块提供了哪些代码文件.<br>一个<code>.info</code>文件是一个类似于<code>.ini</code>标准的控制文件. 在<code>.info</code>文件中的指令是由: 名称, 等号, 值.这三个元素组成的. 例如:</p>
-<pre><code>name = value
-</code></pre><p>或者以数组的形式进行申明,例如:</p>
-<pre><code>name[] = value1
-name[] = value2
-</code></pre><p>(注意,两个方括号中间没有空格)</p>
-<p>drupal的编码规范中,在等号两端通常都有一个空格符号.<br>如果一个值的跨度超过一行, 那他应该被包含在一个括号之中.<br>在drupal的ini解释器中,任何以分号开头的代码都将作为注释,被忽略掉.</p>
-</li>
-<li><p>编写.module文件<br><code>.module</code> 文件一般是一个包含了模块所使用的主要的钩子的PHP文件.<br>下面是一个简单的help钩子的代码</p>
-<pre><code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// $Id$</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * <span class="doctag">@file</span></span><br><span class="line"> * A module exemplifying Drupal coding practices and APIs.</span><br><span class="line"> *</span><br><span class="line"> * This module provides a block that lists all of the</span><br><span class="line"> * installed modules. It illustrates coding standards,</span><br><span class="line"> * practices, and API use for Drupal 7.</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span><br><span class="line">  * Implements hook_help().</span><br><span class="line">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">first_help</span><span class="params">($path, $arg)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> ($path == <span class="string">'admin/help#first'</span>) &#123;</span><br><span class="line">     <span class="keyword">return</span> t(<span class="string">'A demonstration module.'</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-</code></pre><p>在上述代码中有以下代码规范:</p>
-<ul>
-<li>所有的PHP 和 Javascript文件的都使用两格空格来进行缩进, tab是不允许使用在任何代码里.</li>
-<li>在一个完全的PHP文件代码中,通常是省略结尾部的结束标签代码 ‘?&gt;’. 这是要防止夹杂着的空白来打断HTTP的标头.</li>
-<li>Drupal 是使用 Doxygen-styel风格来注释(/<em>* </em>/)方法,类,界面,常亮,文件,全局文件的. #号是不允许使用在注释之中的.</li>
-<li>在运算符两边必须有一个空格的.</li>
-<li>所有的控制流程代码都必须包括在大括号之内.即使if的控制流程代码只有一行主体代码,也是需要用大括号包裹起来.</li>
-<li>方法的命名都是用小写字母以及下划线来分割单词.</li>
-<li>变量名是使用小写字母以及下划线来分割单词之间的空格的.</li>
-</ul>
-</li>
-<li><p>翻译函数 <code>t()</code> 和翻译<br>翻译函数必须遵循如下写法:</p>
-<pre><code>t(&apos;This is my string&apos;);
-</code></pre><p>不能以下面的方式来写:</p>
-<pre><code>$variable = &apos;This is a string&apos;;
-t($variable);
-</code></pre><p>这是因为t()函数, 他不执行代码, 只是读取代码.<br>t()函数接受一个可选参数，这是个关联数组. 例如:</p>
-<pre><code>$values = array(&apos;@user&apos; =&gt; $username);
-print t(&apos;Welcome, @user&apos;, $values);
-</code></pre><p>这两行代码中,申明@user为占位符,值为变量<code>$username</code>的值.当<code>t()</code>函数被调用时, $values的映射将替换掉要被翻译语句中的占位符.<br>如果占位符使用@符号开头, 则Drupal将在插入翻译之前, 对这个值使用<code>check_plain()</code>方法来进行过滤.<br>如果你确定你的字符串没有任何危险,则可以使用感叹号(!)开头来命名占位符.但这样做,drupal将直接插入这个值,而不进行过滤.这在不需要对你要插入的数据进行翻译的时候,是非常有用的. 像这样写:</p>
-<pre><code>$values = array(&apos;!url&apos; =&gt; &apos;http://example.com&apos;);
-print t(&apos;The website can be found at !url&apos;, $values);
-</code></pre><p>百分号开头的占位符,可以在值插入之前进行安全过滤,并且强制值为文本类型;(用em标签包围),像这样写:</p>
-<pre><code>$values = array(&apos;%color&apos; =&gt; &apos;blue&apos;);
-print t(&apos;My favorite color is %color.&apos;, $values);
-</code></pre></li>
-</ul>
-<a href="/2016/03/23/drupal-module-development-2/" title="下一步 编写自动测试">下一步 编写自动测试</a>
+<p>重写控制器的第一步是创建一个继承FOSUserBundle的子bundle. 下面的代码片段定义了一个名为<code>AcmeUserBundle</code>的继承自FOSUserBundle的子bundle.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/AcmeUserBundle.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpKernel</span>\<span class="title">Bundle</span>\<span class="title">Bundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AcmeUserBundle</span> <span class="keyword">extends</span> <span class="title">Bundle</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getParent</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'FOSUserBundle'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Symfony框架只中每个bundle只能有一个子bundle. 这意味着你不能再创建另外一个继承自FOSUserBundle的子bundle.</p>
+</blockquote>
+<p>现在你已经创建了一个新的子bundle, 你可以创建一个与你想重写的控制器路径以及名称相同的控制器类. 在这个例子中,通过扩展FOSUserBundle中的<code>RegistrationController</code>类来实现对<code>RegistrationController</code>的方法中额外的功能的重写.<br>下面的例子中重写了<code>registerAction</code>方法. 它使用了base 控制器的代码并且添加了新用户登录的逻辑.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/Controller/RegistrationController.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">RedirectResponse</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Controller</span>\<span class="title">RegistrationController</span> <span class="title">as</span> <span class="title">BaseController</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegistrationController</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">registerAction</span><span class="params">(Request $request)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $form = $this-&gt;container-&gt;get(<span class="string">'fos_user.registration.form'</span>);</span><br><span class="line">        $formHandler = $this-&gt;container-&gt;get(<span class="string">'fos_user.registration.form.handler'</span>);</span><br><span class="line">        $confirmationEnabled = $this-&gt;container-&gt;getParameter(<span class="string">'fos_user.registration.confirmation.enabled'</span>);</span><br><span class="line"></span><br><span class="line">        $process = $formHandler-&gt;process($confirmationEnabled);</span><br><span class="line">        <span class="keyword">if</span> ($process) &#123;</span><br><span class="line">            $user = $form-&gt;getData();</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*****************************************************</span><br><span class="line">             * Add new functionality (e.g. log the registration) *</span><br><span class="line">             *****************************************************/</span></span><br><span class="line">            $this-&gt;container-&gt;get(<span class="string">'logger'</span>)-&gt;info(</span><br><span class="line">                sprintf(<span class="string">'New user registration: %s'</span>, $user)</span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ($confirmationEnabled) &#123;</span><br><span class="line">                $this-&gt;container-&gt;get(<span class="string">'session'</span>)-&gt;set(<span class="string">'fos_user_send_confirmation_email/email'</span>, $user-&gt;getEmail());</span><br><span class="line">                $route = <span class="string">'fos_user_registration_check_email'</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                $this-&gt;authenticateUser($user);</span><br><span class="line">                $route = <span class="string">'fos_user_registration_confirmed'</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $this-&gt;setFlash(<span class="string">'fos_user_success'</span>, <span class="string">'registration.flash.user_created'</span>);</span><br><span class="line">            $url = $this-&gt;container-&gt;get(<span class="string">'router'</span>)-&gt;generate($route);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> RedirectResponse($url);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $this-&gt;container-&gt;get(<span class="string">'templating'</span>)-&gt;renderResponse(<span class="string">'FOSUserBundle:Registration:register.html.twig'</span>, <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'form'</span> =&gt; $form-&gt;createView(),</span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在你想重写时不继承FOSUserBundle控制器类而是继承自FrameworkBundle提供的容器或者控制器, 那你就必须实现FOSUserBundle 的控制器所有的方法.</p>
+</blockquote>
 
       
     </div>
@@ -360,7 +318,11 @@ print t(&apos;My favorite color is %color.&apos;, $values);
           
             <a href="/tags/翻译/" rel="tag">#翻译</a>
           
-            <a href="/tags/Drupal/" rel="tag">#Drupal</a>
+            <a href="/tags/PHP/" rel="tag">#PHP</a>
+          
+            <a href="/tags/Symfony/" rel="tag">#Symfony</a>
+          
+            <a href="/tags/FOSUserBundle/" rel="tag">#FOSUserBundle</a>
           
         </div>
       
@@ -369,13 +331,13 @@ print t(&apos;My favorite color is %color.&apos;, $values);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" rel="next" title="Symfony框架之FOSUserBundle挂载到控制器">
+                <i class="fa fa-chevron-left"></i> Symfony框架之FOSUserBundle挂载到控制器
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/23/drupal-module-development-2/" rel="prev" title="Drupal7模块开发 编写自动测试">
-                Drupal7模块开发 编写自动测试 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -400,8 +362,8 @@ print t(&apos;My favorite color is %color.&apos;, $values);
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/23/drupal-module-development-1/"
-           data-title="Drupal7模块开发 创建第一个模块" data-url="http://yoursite.com/2016/03/23/drupal-module-development-1/">
+      <div class="ds-thread" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/"
+           data-title="Symfony框架之重写FOSUserBundle的默认控制器" data-url="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/">
       </div>
     
   </div>
@@ -504,7 +466,7 @@ print t(&apos;My favorite color is %color.&apos;, $values);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块命名"><span class="nav-number">1.</span> <span class="nav-text">模块命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块存放位置"><span class="nav-number">2.</span> <span class="nav-text">模块存放位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建模块文件夹"><span class="nav-number">3.</span> <span class="nav-text">创建模块文件夹</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
