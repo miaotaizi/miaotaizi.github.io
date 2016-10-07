@@ -57,22 +57,16 @@
 
 
 
-<meta name="description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
-
-FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
+<meta name="description" content="重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Symfony框架之重写FOSUserBundle的默认控制器">
-<meta property="og:url" content="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/index.html">
+<meta property="og:title" content="重写FOSUserBundle的默认表单">
+<meta property="og:url" content="http://yoursite.com/2016/10/07/fosuserbundle-overriding-default-forms/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
-
-FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
-<meta property="og:updated_time" content="2016-10-04T13:54:43.000Z">
+<meta property="og:description" content="重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.">
+<meta property="og:updated_time" content="2016-10-07T14:13:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Symfony框架之重写FOSUserBundle的默认控制器">
-<meta name="twitter:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
-
-FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
+<meta name="twitter:title" content="重写FOSUserBundle的默认表单">
+<meta name="twitter:description" content="重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.">
 
 
 
@@ -90,7 +84,7 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
   };
 </script>
 
-  <title> Symfony框架之重写FOSUserBundle的默认控制器 | Mr Miao </title>
+  <title> 重写FOSUserBundle的默认表单 | Mr Miao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -220,7 +214,7 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
             
             
               
-                Symfony框架之重写FOSUserBundle的默认控制器
+                重写FOSUserBundle的默认表单
               
             
           </h1>
@@ -232,8 +226,8 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T21:49:41+08:00" content="2016-10-04">
-              2016-10-04
+            <time itemprop="dateCreated" datetime="2016-10-07T22:07:41+08:00" content="2016-10-07">
+              2016-10-07
             </time>
           </span>
 
@@ -262,8 +256,8 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/04/fosuserbundle-overriding-default-controllers/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/fosuserbundle-overriding-default-forms/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/fosuserbundle-overriding-default-forms/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,22 +279,26 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
       
 
       
-        <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html</a></p>
-</blockquote>
-<p>FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.<br><a id="more"></a></p>
+        <h4 id="重写表单类型"><a href="#重写表单类型" class="headerlink" title="重写表单类型"></a>重写表单类型</h4><p>FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的<code>User</code>类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.</p>
+<a id="more"></a>
+<p>假设你创建了一个<code>AppBundle\Entity\User</code>的用户类. 在这个类里面, 你必须添加一个<code>name</code>属性跟用户名以及邮箱地址同时保存下来.此时, 当一个用户在你的网站注册时, 他必须填写他们的姓名以及用户名和邮箱, 密码. 下面的代码是添加了<code>$name</code>属性以及验证的例子.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/AppBundle/Entity/User.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Model</span>\<span class="title">User</span> <span class="title">as</span> <span class="title">BaseUser</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Doctrine</span>\<span class="title">ORM</span>\<span class="title">Mapping</span> <span class="title">as</span> <span class="title">ORM</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">Validator</span>\<span class="title">Constraints</span> <span class="title">as</span> <span class="title">Assert</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">BaseUser</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@ORM</span>\Id</span><br><span class="line">     * <span class="doctag">@ORM</span>\Column(type="integer")</span><br><span class="line">     * <span class="doctag">@ORM</span>\GeneratedValue(strategy="AUTO")</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">protected</span> $id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@ORM</span>\Column(type="string", length=255)</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@Assert</span>\NotBlank(message="Please enter your name.", groups=&#123;"Registration", "Profile"&#125;)</span><br><span class="line">     * <span class="doctag">@Assert</span>\Length(</span><br><span class="line">     *     min=3,</span><br><span class="line">     *     max=255,</span><br><span class="line">     *     minMessage="The name is too short.",</span><br><span class="line">     *     maxMessage="The name is too long.",</span><br><span class="line">     *     groups=&#123;"Registration", "Profile"&#125;</span><br><span class="line">     * )</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">protected</span> $name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>重写控制器需要复制所有的action逻辑. 大多数情况下使用事件来实现功能会更简单一些. 只有在没有其他办法的情况下才会考虑重写控制器.</p>
+<p>默认情况下, Registration验证组是在一个新用户注册时被使用的.  请确保将你的name属性添加到了命名为Registration的验证组, 除非你在配置文件中修改了这个值.</p>
 </blockquote>
-<p>重写控制器的第一步是创建一个继承FOSUserBundle的子bundle. 下面的代码片段定义了一个名为<code>AcmeUserBundle</code>的继承自FOSUserBundle的子bundle.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/AcmeUserBundle.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpKernel</span>\<span class="title">Bundle</span>\<span class="title">Bundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AcmeUserBundle</span> <span class="keyword">extends</span> <span class="title">Bundle</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getParent</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'FOSUserBundle'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你尝试使用默认的表单进行注册, 你会发现新添加的<code>name</code>属性并不在表单中. 你需要通过创建一个自定义表单类型并且进行配置, 才能使表单正常运作.</p>
+<p>第一步是在你的bundle中添加一个新的表单类型. 下面这个类继承自FOSUserBundle的<code>fos_user_registration</code>类型表单, 并且添加了自定义的<code>name</code>字段.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/AppBundle/Form/RegistrationType.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">AppBundle</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">Form</span>\<span class="title">AbstractType</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">Form</span>\<span class="title">FormBuilderInterface</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegistrationType</span> <span class="keyword">extends</span> <span class="title">AbstractType</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">buildForm</span><span class="params">(FormBuilderInterface $builder, array $options)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $builder-&gt;add(<span class="string">'name'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getParent</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'FOS\UserBundle\Form\Type\RegistrationFormType'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Or for Symfony &lt; 2.8</span></span><br><span class="line">        <span class="comment">// return 'fos_user_registration';</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getBlockPrefix</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'app_user_registration'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// For Symfony 2.x</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getName</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $this-&gt;getBlockPrefix();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Symfony框架只中每个bundle只能有一个子bundle. 这意味着你不能再创建另外一个继承自FOSUserBundle的子bundle.</p>
+<p>如果你不想复用FOSUserBundle提供的默认字段, 则可以忽略<code>getParent</code>方法, 自己添加所有的字段.</p>
 </blockquote>
-<p>现在你已经创建了一个新的子bundle, 你可以创建一个与你想重写的控制器路径以及名称相同的控制器类. 在这个例子中,通过扩展FOSUserBundle中的<code>RegistrationController</code>类来实现对<code>RegistrationController</code>的方法中额外的功能的重写.<br>下面的例子中重写了<code>registerAction</code>方法. 它使用了base 控制器的代码并且添加了新用户登录的逻辑.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/Controller/RegistrationController.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">RedirectResponse</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Controller</span>\<span class="title">RegistrationController</span> <span class="title">as</span> <span class="title">BaseController</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegistrationController</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">registerAction</span><span class="params">(Request $request)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $form = $this-&gt;container-&gt;get(<span class="string">'fos_user.registration.form'</span>);</span><br><span class="line">        $formHandler = $this-&gt;container-&gt;get(<span class="string">'fos_user.registration.form.handler'</span>);</span><br><span class="line">        $confirmationEnabled = $this-&gt;container-&gt;getParameter(<span class="string">'fos_user.registration.confirmation.enabled'</span>);</span><br><span class="line"></span><br><span class="line">        $process = $formHandler-&gt;process($confirmationEnabled);</span><br><span class="line">        <span class="keyword">if</span> ($process) &#123;</span><br><span class="line">            $user = $form-&gt;getData();</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*****************************************************</span><br><span class="line">             * Add new functionality (e.g. log the registration) *</span><br><span class="line">             *****************************************************/</span></span><br><span class="line">            $this-&gt;container-&gt;get(<span class="string">'logger'</span>)-&gt;info(</span><br><span class="line">                sprintf(<span class="string">'New user registration: %s'</span>, $user)</span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ($confirmationEnabled) &#123;</span><br><span class="line">                $this-&gt;container-&gt;get(<span class="string">'session'</span>)-&gt;set(<span class="string">'fos_user_send_confirmation_email/email'</span>, $user-&gt;getEmail());</span><br><span class="line">                $route = <span class="string">'fos_user_registration_check_email'</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                $this-&gt;authenticateUser($user);</span><br><span class="line">                $route = <span class="string">'fos_user_registration_confirmed'</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $this-&gt;setFlash(<span class="string">'fos_user_success'</span>, <span class="string">'registration.flash.user_created'</span>);</span><br><span class="line">            $url = $this-&gt;container-&gt;get(<span class="string">'router'</span>)-&gt;generate($route);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> RedirectResponse($url);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $this-&gt;container-&gt;get(<span class="string">'templating'</span>)-&gt;renderResponse(<span class="string">'FOSUserBundle:Registration:register.html.twig'</span>, <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'form'</span> =&gt; $form-&gt;createView(),</span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你已经创建好了自定义表单类型, 接着就是将它定义为一个服务并且添加相应的tag. tag的<code>name</code>值必须为<code>form.type</code>并且<code>alias</code>值必须与在添加的表单类型中的<code>getName</code>方法返回的字符串相同. <code>alias</code>是要告诉FOSUserBundle使用哪个自定义表单类型的名称.<br>下面是你的表单服务的配置示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># app/config/services.yml</span><br><span class="line">services:</span><br><span class="line">    app.form.registration:</span><br><span class="line">        class: AppBundle\Form\RegistrationType</span><br><span class="line">        tags:</span><br><span class="line">            - &#123; name: form.type, alias: app_user_registration &#125;</span><br></pre></td></tr></table></figure>
+<p>最后你需要更新你的FOSUserBundle的配置信息, 以便让FOSUserBundle知道要使用哪个表单来替换默认的表单. 下面是替换注册表单的示例配置.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># app/config/config.yml</span><br><span class="line">fos_user:</span><br><span class="line">    # ...</span><br><span class="line">    registration:</span><br><span class="line">        form:</span><br><span class="line">            type: AppBundle\Form\RegistrationType</span><br><span class="line">            # if you are using Symfony &lt; 2.8 you should use the type name instead</span><br><span class="line">            # type: app_user_registration</span><br></pre></td></tr></table></figure>
+<p>注意在配置文件中是如何使用你的表单类型服务配置中tag的<code>alias</code>值来告诉FOSUserBundle使用你的自定义表单的.</p>
 <blockquote>
-<p>如果在你想重写时不继承FOSUserBundle控制器类而是继承自FrameworkBundle提供的容器或者控制器, 那你就必须实现FOSUserBundle 的控制器所有的方法.</p>
+<p>如果你需要在处理表单的时候添加一些逻辑, 你可以添加一个监听者<a href="/2016/10/01/fosuserbundle-hooking-into-the-controller">挂载到控制器</a></p>
 </blockquote>
 
       
@@ -331,17 +329,13 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" rel="next" title="Symfony框架之FOSUserBundle挂载到控制器">
-                <i class="fa fa-chevron-left"></i> Symfony框架之FOSUserBundle挂载到控制器
+              <a href="/2016/10/04/fosuserbundle-overriding-default-controllers/" rel="next" title="Symfony框架之重写FOSUserBundle的默认控制器">
+                <i class="fa fa-chevron-left"></i> Symfony框架之重写FOSUserBundle的默认控制器
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/07/fosuserbundle-overriding-default-forms/" rel="prev" title="重写FOSUserBundle的默认表单">
-                重写FOSUserBundle的默认表单 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -366,8 +360,8 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/"
-           data-title="Symfony框架之重写FOSUserBundle的默认控制器" data-url="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/">
+      <div class="ds-thread" data-thread-key="2016/10/07/fosuserbundle-overriding-default-forms/"
+           data-title="重写FOSUserBundle的默认表单" data-url="http://yoursite.com/2016/10/07/fosuserbundle-overriding-default-forms/">
       </div>
     
   </div>
@@ -470,7 +464,7 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#重写表单类型"><span class="nav-number">1.</span> <span class="nav-text">重写表单类型</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
