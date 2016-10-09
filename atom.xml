@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-07T14:13:10.000Z</updated>
+  <updated>2016-10-09T13:35:23.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于FOSUserBundle的用户管理服务</title>
+    <link href="http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/"/>
+    <id>http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/</id>
+    <published>2016-10-09T13:06:14.000Z</published>
+    <updated>2016-10-09T13:35:23.000Z</updated>
+    
+    <content type="html">&lt;p&gt;所有用户操作都实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;如果将&lt;code&gt;db_driver&lt;/code&gt;配置为&lt;code&gt;orm&lt;/code&gt;, 这个服务则为&lt;code&gt;FOS\UserBundle\Doctrine\UserManager&lt;/code&gt;的实例.&lt;/p&gt;
+&lt;p&gt;如果将&lt;code&gt;db_driver&lt;/code&gt;配置为&lt;code&gt;mongodb&lt;/code&gt;, 这个服务则为&lt;code&gt;FOS\UserBundle\Doctrine\UserManager&lt;/code&gt;的实例.&lt;/p&gt;
+&lt;p&gt;如果将&lt;code&gt;db_driver&lt;/code&gt;配置为&lt;code&gt;couchdb&lt;/code&gt;, 这个服务则为&lt;code&gt;FOS\UserBundle\Doctrine\UserManager&lt;/code&gt;的实例.&lt;/p&gt;
+&lt;p&gt;如果将&lt;code&gt;db_driver&lt;/code&gt;配置为&lt;code&gt;propel&lt;/code&gt;, 这个服务则为&lt;code&gt;FOS\UserBundle\Propel\UserManager&lt;/code&gt;的实例.&lt;/p&gt;
+&lt;h4 id=&quot;调用用户管理服务&quot;&gt;&lt;a href=&quot;#调用用户管理服务&quot; class=&quot;headerlink&quot; title=&quot;调用用户管理服务&quot;&gt;&lt;/a&gt;调用用户管理服务&lt;/h4&gt;&lt;p&gt;用户管理是作为&lt;code&gt;fos_user.user_manager&lt;/code&gt;服务在容器中使用的.&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$userManager = $container-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;fos_user.user_manager&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;创建一个新用户&quot;&gt;&lt;a href=&quot;#创建一个新用户&quot; class=&quot;headerlink&quot; title=&quot;创建一个新用户&quot;&gt;&lt;/a&gt;创建一个新用户&lt;/h4&gt;&lt;p&gt;可以使用用户管理来创建一个用户类的实例.&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$user = $userManager-&amp;gt;createUser();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;$user&lt;/code&gt;则为用户类的一个实例.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你的构造函数中强制了一些参数, 这个方法会变得不可用.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;检索用户&quot;&gt;&lt;a href=&quot;#检索用户&quot; class=&quot;headerlink&quot; title=&quot;检索用户&quot;&gt;&lt;/a&gt;检索用户&lt;/h4&gt;&lt;p&gt;用户管理服务有一些基于唯一字段(用户名, 电子邮件, 已验证的token)的查询方法和一个提取已有用户的方法.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;findUserByUsername($username)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;findUserByEmail($email)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;findUserByUsernameOrEmail($value)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;findUserByConfirmationToken($token)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;findUserBy(array(&amp;#39;id&amp;#39;=&amp;gt;$id))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;findUsers()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你可以使用用户服务中的&lt;code&gt;updateUser&lt;/code&gt;方法来保存用户对象. 这个方法会更新编码后的密码以及一些常用字段, 然后保存.&lt;/p&gt;
+&lt;h4 id=&quot;更新用户对象&quot;&gt;&lt;a href=&quot;#更新用户对象&quot; class=&quot;headerlink&quot; title=&quot;更新用户对象&quot;&gt;&lt;/a&gt;更新用户对象&lt;/h4&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$user = $userManager-&amp;gt;createUser();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$user-&amp;gt;setUsername(&lt;span class=&quot;string&quot;&gt;&#39;John&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$user-&amp;gt;setEmail(&lt;span class=&quot;string&quot;&gt;&#39;john.doe@example.com&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$userManager-&amp;gt;updateUser($user);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;FOSUserBundle在程序中自带一个Doctrine监听器来处理密码以及常用字段的更新. 假如你始终使用用户管理服务来保存用户, 你也许会想禁用这个监听器来提高应用的性能.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# app/config/config.yml
+fos_user:
+    # ...
+   use_listener: false
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Propel实现中没有添加此监听器, 所以你需要调用用户管理服务中的方法来保存用户信息.&lt;/p&gt;
+&lt;p&gt;对于Doctrine实现, 当在请求&lt;code&gt;updateUser&lt;/code&gt;方法时, 默认的行为会去刷新工作单元. 你可以添加一个&lt;code&gt;false&lt;/code&gt;参数来禁止刷新. 这相当于请求&lt;code&gt;updateCanonicalFields&lt;/code&gt;和&lt;code&gt;updatePassword&lt;/code&gt;方法.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;示例:&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MainController&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;updateAction&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;($id)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $user = &lt;span class=&quot;comment&quot;&gt;// get a user from the datastore&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $user-&amp;gt;setEmail($newEmail);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $this-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;fos_user.user_manager&#39;&lt;/span&gt;)-&amp;gt;updateUser($user, &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// make more modifications to the database&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $this-&amp;gt;getDoctrine()-&amp;gt;getManager()-&amp;gt;flush();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;重写用户管理服务&quot;&gt;&lt;a href=&quot;#重写用户管理服务&quot; class=&quot;headerlink&quot; title=&quot;重写用户管理服务&quot;&gt;&lt;/a&gt;重写用户管理服务&lt;/h4&gt;&lt;p&gt;你可以配置一个实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口的服务来替代默认的用户管理服务. 默认实现的id为&lt;code&gt;fos_user.user_manager.default&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    service:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        user_manager: custom_user_manager_id&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;自定义的实现可以继承&lt;code&gt;FOS\UserBundle\Model\UserManager&lt;/code&gt;从而复用现成逻辑.&lt;/p&gt;
+&lt;h4 id=&quot;整合SecurityBundle&quot;&gt;&lt;a href=&quot;#整合SecurityBundle&quot; class=&quot;headerlink&quot; title=&quot;整合SecurityBundle&quot;&gt;&lt;/a&gt;整合SecurityBundle&lt;/h4&gt;&lt;p&gt;FOSUserBundle在&lt;code&gt;UserManagerInterface&lt;/code&gt;顶部提供了一些&lt;code&gt;Symfony\Component\Security\Core\UserProviderInterface&lt;/code&gt;的实现.&lt;/p&gt;
+&lt;p&gt;虽然框架內建的用户管理服务也实现了&lt;code&gt;Symfony\Component\Security\Core\User\UserProviderInterface&lt;/code&gt;, 使用这个实现作为用户生成器已经过时了并且将在将来的版本中移除.&lt;br&gt; 请使用&lt;code&gt;FOS\UserBundle\Security\UserProvider&lt;/code&gt;来替换它.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;所有用户操作都实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
+    
+      <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>重写FOSUserBundle的默认表单</title>
@@ -54,13 +123,13 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -102,13 +171,13 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -144,13 +213,13 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -206,13 +275,13 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -221,7 +290,7 @@
     <link href="http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/"/>
     <id>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</id>
     <published>2016-09-15T12:33:03.000Z</published>
-    <updated>2016-10-07T14:12:22.000Z</updated>
+    <updated>2016-10-09T13:11:00.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&lt;/a&gt;&lt;/p&gt;
@@ -296,7 +365,7 @@
 &lt;p&gt;若使用的是MongoDB, 你则需要执行下面命令来创建索引.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console doctrine:mongodb:schema:create --index&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;现在你可以在&lt;code&gt;http://app.com/app_dev.php/login&lt;/code&gt;地址中登录了.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/07/fosuserbundle-overriding-default-forms/&quot; title=&quot;重写FOSUserBundle的默认表单&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;关于FOSUserBundle的用户管理&lt;/a&gt;(待翻译)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/07/fosuserbundle-overriding-default-forms/&quot; title=&quot;重写FOSUserBundle的默认表单&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/09/about-fosuserbundle-user-manager/&quot; title=&quot;关于FOSUserBundle的用户管理服务&quot;&gt;关于FOSUserBundle的用户管理服务&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;FOSUserBundle命令行管理工具&lt;/a&gt;(待翻译)&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -312,13 +381,13 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -488,11 +557,11 @@
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   

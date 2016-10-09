@@ -60,7 +60,7 @@
 <meta name="description" content="你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mr Miao">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Mr Miao">
 <meta property="og:description" content="你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.">
 <meta name="twitter:card" content="summary">
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title> 归档 | Mr Miao </title>
+  <title> Mr Miao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,7 +104,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  page-archive  ">
+  <div class="container one-collumn sidebar-position-right 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -191,403 +193,139 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  
+  
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 11 篇日志。 继续努力。
-    </span>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/23/drupal-module-development-1/" itemprop="url">
+                  Drupal7模块开发 创建第一个模块
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T22:00:16+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/外文翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">外文翻译</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/23/drupal-module-development-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/23/drupal-module-development-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
         </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/10/09/about-fosuserbundle-user-manager/" itemprop="url">
-              
-                <span itemprop="name">关于FOSUserBundle的用户管理服务</span>
-              
+          <blockquote>
+<p>Drupal7模块开发 系列是 由 Drupal 7 Module Development 英文版翻译过来的, 主要用于学习drupal的模块开发. 至于翻译质量, 我只能说尽力了, 大家凑活看吧, 鄙人文字功底有限. 如果有些地方真的被我翻译到误人子弟的地步, 恳请大家指正.</p>
+</blockquote>
+<h2 id="模块命名"><a href="#模块命名" class="headerlink" title="模块命名"></a>模块命名</h2><p>Drupal的模块有两个名字,人读名与机读名.</p>
+<blockquote>
+<p>  人读名: 是由首字母大写的且用空格分开的单词组成,例如:Views, Eldorado Superfly等等.</p>
+<p>  机读名: 是由小写字母,数字和下划线组成的字符串,且不允许有其他字母.例如上面两个模块的机读名字则应该为:views和eldorado_superfly.</p>
+</blockquote>
+<p>按照惯例这两个名字应该差不多,而且通常应该将大写祖母转化为小写字母.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/23/drupal-module-development-1/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
+          </div>
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-09T21:06:14+08:00"
-              content="2016-10-09" >
-          10-09
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/07/fosuserbundle-overriding-default-forms/" itemprop="url">
-              
-                <span itemprop="name">重写FOSUserBundle的默认表单</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-07T22:07:41+08:00"
-              content="2016-10-07" >
-          10-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="url">
-              
-                <span itemprop="name">Symfony框架之重写FOSUserBundle的默认控制器</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-04T21:49:41+08:00"
-              content="2016-10-04" >
-          10-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" itemprop="url">
-              
-                <span itemprop="name">Symfony框架之FOSUserBundle挂载到控制器</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-01T23:05:11+08:00"
-              content="2016-10-01" >
-          10-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/28/overriding-default-fosuserbundle-templates/" itemprop="url">
-              
-                <span itemprop="name">Symfony框架之重写FOSUserBundle的默认模板</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-28T22:41:21+08:00"
-              content="2016-09-28" >
-          09-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/15/getting-started-with-FOSUserBundle/" itemprop="url">
-              
-                <span itemprop="name">Symfony框架之FOSUserBundle入门教程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-15T20:33:03+08:00"
-              content="2016-09-15" >
-          09-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/04/phpunit-test-in-phpstorm-and-vagrant/" itemprop="url">
-              
-                <span itemprop="name">使用PhpStorm在vagrant环境下配置phpunit进行单元测试</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-04T13:48:36+08:00"
-              content="2016-08-04" >
-          08-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/17/bundling-angular-with-webpack/" itemprop="url">
-              
-                <span itemprop="name">使用Webpack 构建AngularJs的开发环境</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-17T15:42:59+08:00"
-              content="2016-06-17" >
-          06-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/05/20/javascript-extends-demo/" itemprop="url">
-              
-                <span itemprop="name">Javascript 面向对象之继承的实现</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-20T10:53:37+08:00"
-              content="2016-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/03/23/drupal-module-development-2/" itemprop="url">
-              
-                <span itemprop="name">Drupal7模块开发 编写自动测试</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-23T23:34:41+08:00"
-              content="2016-03-23" >
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
-
 
 
 
@@ -759,12 +497,6 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 

@@ -57,25 +57,16 @@
 
 
 
-<meta name="description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html
-如果你在应用中使用了FOSUserBundle, 你势必会想办法去重写这个bundle提供的默认模板.虽然模板的名称是不可配置的, 但是Symfony框架也为我们提供了两种重写模板的方式.
-
-在app/Resources文件夹中">
+<meta name="description" content="所有用户操作都实现了FOS\UserBundle\Model\UserManagerInterface接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Symfony框架之重写FOSUserBundle的默认模板">
-<meta property="og:url" content="http://yoursite.com/2016/09/28/overriding-default-fosuserbundle-templates/index.html">
+<meta property="og:title" content="关于FOSUserBundle的用户管理服务">
+<meta property="og:url" content="http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html
-如果你在应用中使用了FOSUserBundle, 你势必会想办法去重写这个bundle提供的默认模板.虽然模板的名称是不可配置的, 但是Symfony框架也为我们提供了两种重写模板的方式.
-
-在app/Resources文件夹中">
-<meta property="og:updated_time" content="2016-09-28T14:55:54.000Z">
+<meta property="og:description" content="所有用户操作都实现了FOS\UserBundle\Model\UserManagerInterface接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.">
+<meta property="og:updated_time" content="2016-10-09T13:35:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Symfony框架之重写FOSUserBundle的默认模板">
-<meta name="twitter:description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html
-如果你在应用中使用了FOSUserBundle, 你势必会想办法去重写这个bundle提供的默认模板.虽然模板的名称是不可配置的, 但是Symfony框架也为我们提供了两种重写模板的方式.
-
-在app/Resources文件夹中">
+<meta name="twitter:title" content="关于FOSUserBundle的用户管理服务">
+<meta name="twitter:description" content="所有用户操作都实现了FOS\UserBundle\Model\UserManagerInterface接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.">
 
 
 
@@ -93,7 +84,7 @@
   };
 </script>
 
-  <title> Symfony框架之重写FOSUserBundle的默认模板 | Mr Miao </title>
+  <title> 关于FOSUserBundle的用户管理服务 | Mr Miao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -223,7 +214,7 @@
             
             
               
-                Symfony框架之重写FOSUserBundle的默认模板
+                关于FOSUserBundle的用户管理服务
               
             
           </h1>
@@ -235,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-28T22:41:21+08:00" content="2016-09-28">
-              2016-09-28
+            <time itemprop="dateCreated" datetime="2016-10-09T21:06:14+08:00" content="2016-10-09">
+              2016-10-09
             </time>
           </span>
 
@@ -265,8 +256,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/28/overriding-default-fosuserbundle-templates/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/28/overriding-default-fosuserbundle-templates/" itemprop="commentsCount"></span>
+                <a href="/2016/10/09/about-fosuserbundle-user-manager/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/about-fosuserbundle-user-manager/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,33 +279,47 @@
       
 
       
-        <blockquote>
-<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html</a></p>
-<p>如果你在应用中使用了FOSUserBundle, 你势必会想办法去重写这个bundle提供的默认模板.<br>虽然模板的名称是不可配置的, 但是Symfony框架也为我们提供了两种重写模板的方式.</p>
-<ol>
-<li>在<code>app/Resources</code>文件夹中定义一个同名模板文件.</li>
-<li>创建一个继承了<code>FOSUserBundle</code>的bundle.</li>
-</ol>
-</blockquote>
+        <p>所有用户操作都实现了<code>FOS\UserBundle\Model\UserManagerInterface</code>接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.</p>
 <a id="more"></a>
-<h3 id="举例-重写默认的-layout-html-twig"><a href="#举例-重写默认的-layout-html-twig" class="headerlink" title="举例:重写默认的 layout.html.twig"></a>举例:重写默认的 layout.html.twig</h3><p>推荐的做法是重写<code>Resources/views/layout.html.twig</code>模板, 这样能保证FOSUserBundle提供的页面能与你应用的页面风格保持一致. 下面是一个重写<code>layout.html.twig</code>的例子, 它包含了所有的重写选项.</p>
-<p>FOSUserBundle提供的默认的<code>layout.html.twig</code>:</p>
-<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset="UTF-8" /&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            <span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> is_granted("IS_AUTHENTICATED_REMEMBERED") %&#125;</span></span><br><span class="line">                <span class="template-variable">&#123;&#123; 'layout.logged_in_as'|trans(&#123;'%username%': app.user.username&#125;, 'FOSUserBundle') &#125;&#125;</span> |</span><br><span class="line">                &lt;a href="<span class="template-variable">&#123;&#123; path('fos_user_security_logout') &#125;&#125;</span>"&gt;</span><br><span class="line">                    <span class="template-variable">&#123;&#123; 'layout.logout'|trans(&#123;&#125;, 'FOSUserBundle') &#125;&#125;</span></span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            <span class="template-tag">&#123;% <span class="name">else</span> %&#125;</span></span><br><span class="line">                &lt;a href="<span class="template-variable">&#123;&#123; path('fos_user_security_login') &#125;&#125;</span>"&gt;<span class="template-variable">&#123;&#123; 'layout.login'|trans(&#123;&#125;, 'FOSUserBundle') &#125;&#125;</span>&lt;/a&gt;</span><br><span class="line">            <span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        <span class="template-tag">&#123;% <span class="name"><span class="keyword">for</span></span> type, messages in app.session.flashBag.all %&#125;</span></span><br><span class="line">            <span class="template-tag">&#123;% <span class="name"><span class="keyword">for</span></span> message in messages %&#125;</span></span><br><span class="line">                &lt;div class="<span class="template-variable">&#123;&#123; type &#125;&#125;</span>"&gt;</span><br><span class="line">                    <span class="template-variable">&#123;&#123; message|trans(&#123;&#125;, 'FOSUserBundle') &#125;&#125;</span></span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            <span class="template-tag">&#123;% <span class="name"><span class="keyword">endfor</span></span> %&#125;</span></span><br><span class="line">        <span class="template-tag">&#123;% <span class="name"><span class="keyword">endfor</span></span> %&#125;</span></span><br><span class="line"></span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            <span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> fos_user_content %&#125;</span></span><br><span class="line">            <span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> fos_user_content %&#125;</span></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>如你所见, 它非常的简洁, 没有太多的结构, 所以你肯定会想用你应用中的布局文件来替换他. 在这个模板文件中主要要注意的地方就是名为<code>fos_user_content</code>的区块. 这是FOSUserBundle要在不同bundle的action中显示的内容, 所以你必须在你要重写的布局文件中包含这个区块.</p>
-<p>下面的Twig模板是复写布局文件的例子.</p>
-<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> title %&#125;</span>Demo Application<span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> content %&#125;</span></span><br><span class="line">    <span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> fos_user_content %&#125;</span><span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br></pre></td></tr></table></figure>
-<p>上面的例子继承了你的应用中的布局. <code>content</code> 区块是每个页面中显示内容的主要区域. 这就是为何<code>fos_user_content</code> 区块要包含在它里面的原因. 这将使FOSUserBundle的输出能够像预期的一样集成到应用的布局中去, 看上去像一个整体.</p>
-<h4 id="a-在app-Resources中创建一个新的模板文件"><a href="#a-在app-Resources中创建一个新的模板文件" class="headerlink" title="a)在app/Resources中创建一个新的模板文件"></a>a)在app/Resources中创建一个新的模板文件</h4><p>重写模板的最简单的方式是在你的<code>app/Resources</code>文件夹中创建一个新的模板. 为了重写<code>FOSUserBundle</code>文件夹中的<code>Resources/views/layout.html.twig</code>文件, 你应该将新的模板文件保存在<code>app/Resources/FOSUserBundle/views/layout.html.twig</code></p>
-<p>正如你看到的, 这种方式是在你的<code>app/Resources</code>目录中直接创建一个同名bundle的文件夹. 然后将你要重写的模板按照原来的目录结构保存在里面.</p>
-<h4 id="b-创建一个继承FOSUserBundle的bundle并且重写模板"><a href="#b-创建一个继承FOSUserBundle的bundle并且重写模板" class="headerlink" title="b)创建一个继承FOSUserBundle的bundle并且重写模板"></a>b)创建一个继承FOSUserBundle的bundle并且重写模板</h4><blockquote>
-<p>这种方式相对上面的方式来说会复杂一些.除非你计划重写控制器以及模板, 不然还是使用另外一个方法比较好.</p>
+<p>如果将<code>db_driver</code>配置为<code>orm</code>, 这个服务则为<code>FOS\UserBundle\Doctrine\UserManager</code>的实例.</p>
+<p>如果将<code>db_driver</code>配置为<code>mongodb</code>, 这个服务则为<code>FOS\UserBundle\Doctrine\UserManager</code>的实例.</p>
+<p>如果将<code>db_driver</code>配置为<code>couchdb</code>, 这个服务则为<code>FOS\UserBundle\Doctrine\UserManager</code>的实例.</p>
+<p>如果将<code>db_driver</code>配置为<code>propel</code>, 这个服务则为<code>FOS\UserBundle\Propel\UserManager</code>的实例.</p>
+<h4 id="调用用户管理服务"><a href="#调用用户管理服务" class="headerlink" title="调用用户管理服务"></a>调用用户管理服务</h4><p>用户管理是作为<code>fos_user.user_manager</code>服务在容器中使用的.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$userManager = $container-&gt;get(<span class="string">'fos_user.user_manager'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="创建一个新用户"><a href="#创建一个新用户" class="headerlink" title="创建一个新用户"></a>创建一个新用户</h4><p>可以使用用户管理来创建一个用户类的实例.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$user = $userManager-&gt;createUser();</span><br></pre></td></tr></table></figure>
+<p><code>$user</code>则为用户类的一个实例.</p>
+<blockquote>
+<p>如果你的构造函数中强制了一些参数, 这个方法会变得不可用.</p>
 </blockquote>
-<p>如上所述, 你可以创建一个FOSUserBundle的子bundle, 并且将要重写的模板保存在与FOSUserBundle相同的位置.首先要做的是在你的bundle类中重写<code>getParent</code>方法.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/AcmeUserBundle.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpKernel</span>\<span class="title">Bundle</span>\<span class="title">Bundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AcmeUserBundle</span> <span class="keyword">extends</span> <span class="title">Bundle</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getParent</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'FOSUserBundle'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过你的bundle类中<code>getParent</code>方法返回的bundle的名称, 你可以告诉Symfony框架你的bundle是继承自FOSUserBundle的.</p>
-<p>一旦你将你的bundle定义成了FOSUserBundle的子bundle, 你就可以重写父级bundle中的模板文件了. 若要重写布局文件, 只需要在<code>src/Acme/UserBundle/Resources/views</code>文件夹中创建一个名为<code>layout.html.twig</code>的文件. 注意此文件在bundle中的路径应该与在<code>FOSUserBundle</code>中的路径一样.</p>
-<p>一旦在你的子bundle中重写了模板, 你就需要清理缓存, 即使是在开发环境中也要清理.</p>
-<p><em>重写FOSUserBundle中其他的模板文件的方式跟此文中介绍的方式相同. </em></p>
+<h4 id="检索用户"><a href="#检索用户" class="headerlink" title="检索用户"></a>检索用户</h4><p>用户管理服务有一些基于唯一字段(用户名, 电子邮件, 已验证的token)的查询方法和一个提取已有用户的方法.</p>
+<ul>
+<li><code>findUserByUsername($username)</code></li>
+<li><code>findUserByEmail($email)</code></li>
+<li><code>findUserByUsernameOrEmail($value)</code></li>
+<li><code>findUserByConfirmationToken($token)</code></li>
+<li><code>findUserBy(array(&#39;id&#39;=&gt;$id))</code></li>
+<li><code>findUsers()</code></li>
+</ul>
+<p>你可以使用用户服务中的<code>updateUser</code>方法来保存用户对象. 这个方法会更新编码后的密码以及一些常用字段, 然后保存.</p>
+<h4 id="更新用户对象"><a href="#更新用户对象" class="headerlink" title="更新用户对象"></a>更新用户对象</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$user = $userManager-&gt;createUser();</span><br><span class="line">$user-&gt;setUsername(<span class="string">'John'</span>);</span><br><span class="line">$user-&gt;setEmail(<span class="string">'john.doe@example.com'</span>);</span><br><span class="line"></span><br><span class="line">$userManager-&gt;updateUser($user);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>FOSUserBundle在程序中自带一个Doctrine监听器来处理密码以及常用字段的更新. 假如你始终使用用户管理服务来保存用户, 你也许会想禁用这个监听器来提高应用的性能.</p>
+<pre><code># app/config/config.yml
+fos_user:
+    # ...
+   use_listener: false
+</code></pre><p>Propel实现中没有添加此监听器, 所以你需要调用用户管理服务中的方法来保存用户信息.</p>
+<p>对于Doctrine实现, 当在请求<code>updateUser</code>方法时, 默认的行为会去刷新工作单元. 你可以添加一个<code>false</code>参数来禁止刷新. 这相当于请求<code>updateCanonicalFields</code>和<code>updatePassword</code>方法.</p>
+</blockquote>
+<p>示例:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">updateAction</span><span class="params">($id)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $user = <span class="comment">// get a user from the datastore</span></span><br><span class="line"></span><br><span class="line">        $user-&gt;setEmail($newEmail);</span><br><span class="line"></span><br><span class="line">        $this-&gt;get(<span class="string">'fos_user.user_manager'</span>)-&gt;updateUser($user, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// make more modifications to the database</span></span><br><span class="line"></span><br><span class="line">        $this-&gt;getDoctrine()-&gt;getManager()-&gt;flush();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="重写用户管理服务"><a href="#重写用户管理服务" class="headerlink" title="重写用户管理服务"></a>重写用户管理服务</h4><p>你可以配置一个实现了<code>FOS\UserBundle\Model\UserManagerInterface</code>接口的服务来替代默认的用户管理服务. 默认实现的id为<code>fos_user.user_manager.default</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fos_user:</span><br><span class="line">    # ...</span><br><span class="line">    service:</span><br><span class="line">        user_manager: custom_user_manager_id</span><br></pre></td></tr></table></figure>
+<p>自定义的实现可以继承<code>FOS\UserBundle\Model\UserManager</code>从而复用现成逻辑.</p>
+<h4 id="整合SecurityBundle"><a href="#整合SecurityBundle" class="headerlink" title="整合SecurityBundle"></a>整合SecurityBundle</h4><p>FOSUserBundle在<code>UserManagerInterface</code>顶部提供了一些<code>Symfony\Component\Security\Core\UserProviderInterface</code>的实现.</p>
+<p>虽然框架內建的用户管理服务也实现了<code>Symfony\Component\Security\Core\User\UserProviderInterface</code>, 使用这个实现作为用户生成器已经过时了并且将在将来的版本中移除.<br> 请使用<code>FOS\UserBundle\Security\UserProvider</code>来替换它.</p>
 
       
     </div>
@@ -344,17 +349,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/15/getting-started-with-FOSUserBundle/" rel="next" title="Symfony框架之FOSUserBundle入门教程">
-                <i class="fa fa-chevron-left"></i> Symfony框架之FOSUserBundle入门教程
+              <a href="/2016/10/07/fosuserbundle-overriding-default-forms/" rel="next" title="重写FOSUserBundle的默认表单">
+                <i class="fa fa-chevron-left"></i> 重写FOSUserBundle的默认表单
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" rel="prev" title="Symfony框架之FOSUserBundle挂载到控制器">
-                Symfony框架之FOSUserBundle挂载到控制器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -379,8 +380,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/28/overriding-default-fosuserbundle-templates/"
-           data-title="Symfony框架之重写FOSUserBundle的默认模板" data-url="http://yoursite.com/2016/09/28/overriding-default-fosuserbundle-templates/">
+      <div class="ds-thread" data-thread-key="2016/10/09/about-fosuserbundle-user-manager/"
+           data-title="关于FOSUserBundle的用户管理服务" data-url="http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/">
       </div>
     
   </div>
@@ -483,7 +484,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#举例-重写默认的-layout-html-twig"><span class="nav-number">1.</span> <span class="nav-text">举例:重写默认的 layout.html.twig</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-在app-Resources中创建一个新的模板文件"><span class="nav-number">1.1.</span> <span class="nav-text">a)在app/Resources中创建一个新的模板文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-创建一个继承FOSUserBundle的bundle并且重写模板"><span class="nav-number">1.2.</span> <span class="nav-text">b)创建一个继承FOSUserBundle的bundle并且重写模板</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#调用用户管理服务"><span class="nav-number">1.</span> <span class="nav-text">调用用户管理服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个新用户"><span class="nav-number">2.</span> <span class="nav-text">创建一个新用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检索用户"><span class="nav-number">3.</span> <span class="nav-text">检索用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新用户对象"><span class="nav-number">4.</span> <span class="nav-text">更新用户对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写用户管理服务"><span class="nav-number">5.</span> <span class="nav-text">重写用户管理服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#整合SecurityBundle"><span class="nav-number">6.</span> <span class="nav-text">整合SecurityBundle</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
