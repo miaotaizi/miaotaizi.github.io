@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-09T13:35:23.000Z</updated>
+  <updated>2016-10-11T04:02:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,12 @@
     <link href="http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/"/>
     <id>http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/</id>
     <published>2016-10-09T13:06:14.000Z</published>
-    <updated>2016-10-09T13:35:23.000Z</updated>
+    <updated>2016-10-11T04:02:17.000Z</updated>
     
-    <content type="html">&lt;p&gt;所有用户操作都实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.&lt;/p&gt;
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所有用户操作都实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;如果将&lt;code&gt;db_driver&lt;/code&gt;配置为&lt;code&gt;orm&lt;/code&gt;, 这个服务则为&lt;code&gt;FOS\UserBundle\Doctrine\UserManager&lt;/code&gt;的实例.&lt;/p&gt;
 &lt;p&gt;如果将&lt;code&gt;db_driver&lt;/code&gt;配置为&lt;code&gt;mongodb&lt;/code&gt;, 这个服务则为&lt;code&gt;FOS\UserBundle\Doctrine\UserManager&lt;/code&gt;的实例.&lt;/p&gt;
@@ -67,20 +70,23 @@ fos_user:
     
     <summary type="html">
     
-      &lt;p&gt;所有用户操作都实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所有用户操作都实现了&lt;code&gt;FOS\UserBundle\Model\UserManagerInterface&lt;/code&gt;接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.&lt;/p&gt;
     
     </summary>
     
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -89,9 +95,12 @@ fos_user:
     <link href="http://yoursite.com/2016/10/07/fosuserbundle-overriding-default-forms/"/>
     <id>http://yoursite.com/2016/10/07/fosuserbundle-overriding-default-forms/</id>
     <published>2016-10-07T14:07:41.000Z</published>
-    <updated>2016-10-07T14:13:10.000Z</updated>
+    <updated>2016-10-11T04:02:46.000Z</updated>
     
-    <content type="html">&lt;h4 id=&quot;重写表单类型&quot;&gt;&lt;a href=&quot;#重写表单类型&quot; class=&quot;headerlink&quot; title=&quot;重写表单类型&quot;&gt;&lt;/a&gt;重写表单类型&lt;/h4&gt;&lt;p&gt;FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的&lt;code&gt;User&lt;/code&gt;类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.&lt;/p&gt;
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;重写表单类型&quot;&gt;&lt;a href=&quot;#重写表单类型&quot; class=&quot;headerlink&quot; title=&quot;重写表单类型&quot;&gt;&lt;/a&gt;重写表单类型&lt;/h4&gt;&lt;p&gt;FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的&lt;code&gt;User&lt;/code&gt;类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;假设你创建了一个&lt;code&gt;AppBundle\Entity\User&lt;/code&gt;的用户类. 在这个类里面, 你必须添加一个&lt;code&gt;name&lt;/code&gt;属性跟用户名以及邮箱地址同时保存下来.此时, 当一个用户在你的网站注册时, 他必须填写他们的姓名以及用户名和邮箱, 密码. 下面的代码是添加了&lt;code&gt;$name&lt;/code&gt;属性以及验证的例子.&lt;/p&gt;
 &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// src/AppBundle/Entity/User.php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FOS&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Model&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BaseUser&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Doctrine&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;ORM&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Mapping&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ORM&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Symfony&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Validator&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Constraints&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Assert&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BaseUser&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@ORM&lt;/span&gt;\Id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@ORM&lt;/span&gt;\Column(type=&quot;integer&quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@ORM&lt;/span&gt;\GeneratedValue(strategy=&quot;AUTO&quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; $id;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@ORM&lt;/span&gt;\Column(type=&quot;string&quot;, length=255)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@Assert&lt;/span&gt;\NotBlank(message=&quot;Please enter your name.&quot;, groups=&amp;#123;&quot;Registration&quot;, &quot;Profile&quot;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@Assert&lt;/span&gt;\Length(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *     min=3,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *     max=255,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *     minMessage=&quot;The name is too short.&quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *     maxMessage=&quot;The name is too long.&quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *     groups=&amp;#123;&quot;Registration&quot;, &quot;Profile&quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; $name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -116,20 +125,23 @@ fos_user:
     
     <summary type="html">
     
-      &lt;h4 id=&quot;重写表单类型&quot;&gt;&lt;a href=&quot;#重写表单类型&quot; class=&quot;headerlink&quot; title=&quot;重写表单类型&quot;&gt;&lt;/a&gt;重写表单类型&lt;/h4&gt;&lt;p&gt;FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的&lt;code&gt;User&lt;/code&gt;类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;重写表单类型&quot;&gt;&lt;a href=&quot;#重写表单类型&quot; class=&quot;headerlink&quot; title=&quot;重写表单类型&quot;&gt;&lt;/a&gt;重写表单类型&lt;/h4&gt;&lt;p&gt;FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的&lt;code&gt;User&lt;/code&gt;类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.&lt;/p&gt;
     
     </summary>
     
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -171,13 +183,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -213,13 +225,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -275,13 +287,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -381,13 +393,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -755,9 +767,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -840,9 +852,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   

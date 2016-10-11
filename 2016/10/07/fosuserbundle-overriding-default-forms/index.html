@@ -39,7 +39,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP,Symfony,FOSUserBundle,翻译," />
+  <meta name="keywords" content="翻译,PHP,Symfony,FOSUserBundle," />
 
 
 
@@ -57,16 +57,22 @@
 
 
 
-<meta name="description" content="重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.">
+<meta name="description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html
+
+重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重写FOSUserBundle的默认表单">
 <meta property="og:url" content="http://yoursite.com/2016/10/07/fosuserbundle-overriding-default-forms/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.">
-<meta property="og:updated_time" content="2016-10-07T14:13:10.000Z">
+<meta property="og:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html
+
+重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就">
+<meta property="og:updated_time" content="2016-10-11T04:02:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重写FOSUserBundle的默认表单">
-<meta name="twitter:description" content="重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.">
+<meta name="twitter:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html
+
+重写表单类型FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的User类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就">
 
 
 
@@ -279,7 +285,10 @@
       
 
       
-        <h4 id="重写表单类型"><a href="#重写表单类型" class="headerlink" title="重写表单类型"></a>重写表单类型</h4><p>FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的<code>User</code>类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.</p>
+        <blockquote>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html</a></p>
+</blockquote>
+<h4 id="重写表单类型"><a href="#重写表单类型" class="headerlink" title="重写表单类型"></a>重写表单类型</h4><p>FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的<code>User</code>类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.</p>
 <a id="more"></a>
 <p>假设你创建了一个<code>AppBundle\Entity\User</code>的用户类. 在这个类里面, 你必须添加一个<code>name</code>属性跟用户名以及邮箱地址同时保存下来.此时, 当一个用户在你的网站注册时, 他必须填写他们的姓名以及用户名和邮箱, 密码. 下面的代码是添加了<code>$name</code>属性以及验证的例子.</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/AppBundle/Entity/User.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Model</span>\<span class="title">User</span> <span class="title">as</span> <span class="title">BaseUser</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Doctrine</span>\<span class="title">ORM</span>\<span class="title">Mapping</span> <span class="title">as</span> <span class="title">ORM</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">Validator</span>\<span class="title">Constraints</span> <span class="title">as</span> <span class="title">Assert</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">BaseUser</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@ORM</span>\Id</span><br><span class="line">     * <span class="doctag">@ORM</span>\Column(type="integer")</span><br><span class="line">     * <span class="doctag">@ORM</span>\GeneratedValue(strategy="AUTO")</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">protected</span> $id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@ORM</span>\Column(type="string", length=255)</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@Assert</span>\NotBlank(message="Please enter your name.", groups=&#123;"Registration", "Profile"&#125;)</span><br><span class="line">     * <span class="doctag">@Assert</span>\Length(</span><br><span class="line">     *     min=3,</span><br><span class="line">     *     max=255,</span><br><span class="line">     *     minMessage="The name is too short.",</span><br><span class="line">     *     maxMessage="The name is too long.",</span><br><span class="line">     *     groups=&#123;"Registration", "Profile"&#125;</span><br><span class="line">     * )</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">protected</span> $name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -314,13 +323,13 @@
       
         <div class="post-tags">
           
+            <a href="/tags/翻译/" rel="tag">#翻译</a>
+          
             <a href="/tags/PHP/" rel="tag">#PHP</a>
           
             <a href="/tags/Symfony/" rel="tag">#Symfony</a>
           
             <a href="/tags/FOSUserBundle/" rel="tag">#FOSUserBundle</a>
-          
-            <a href="/tags/翻译/" rel="tag">#翻译</a>
           
         </div>
       
