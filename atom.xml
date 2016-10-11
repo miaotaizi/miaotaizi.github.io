@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-11T04:02:17.000Z</updated>
+  <updated>2016-10-11T06:53:48.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FOSUserBundle命令行管理工具</title>
+    <link href="http://yoursite.com/2016/10/11/fosuserbundle-command-line-tools/"/>
+    <id>http://yoursite.com/2016/10/11/fosuserbundle-command-line-tools/</id>
+    <published>2016-10-11T06:52:05.000Z</published>
+    <updated>2016-10-11T06:53:48.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FOSUserBundle提供了大量的命令行工具来帮助你管理应用中的用户. 有这些命令任务可用:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a User  &lt;em&gt;(创建用户)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Activate a User &lt;em&gt;(激活用户)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Deactivate a User &lt;em&gt;(停用用户)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Promote a User &lt;em&gt;(设置用户权限)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Demote a User &lt;em&gt;(清除用户权限)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Change a User’s Password &lt;em&gt;( 重置用户密码)&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在使用这些命令行之前, 你需要正确的安装以及配置好FOSUserBundle&lt;/p&gt;
+&lt;p&gt;此文中引用的是Symfony3的控制&lt;code&gt;bin/console&lt;/code&gt;. 如果你使用的Symfony2, 请调用&lt;code&gt;app/console&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;创建用户&quot;&gt;&lt;a href=&quot;#创建用户&quot; class=&quot;headerlink&quot; title=&quot;创建用户&quot;&gt;&lt;/a&gt;创建用户&lt;/h4&gt;&lt;p&gt;你可以在应用中使用&lt;code&gt;fos:user:create&lt;/code&gt;命令来创建用户. 这个命令包含三个参数, &lt;code&gt;username&lt;/code&gt;,  &lt;code&gt;email&lt;/code&gt;, 和 &lt;code&gt;password&lt;/code&gt;.&lt;br&gt;假如你需要创建一个用户名为&lt;code&gt;testuser&lt;/code&gt;, 邮箱为&lt;code&gt;test@example.com&lt;/code&gt;, 密码为&lt;code&gt;p@ssword&lt;/code&gt;的用户, 则执行下面的命令&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:create testuser test@example.com p@ssword&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若没有传递任何参数到此命令中, 则程序会自动询问你相应的信息. 假设你运行了下面这条命令, 你则会被询问去输入用户的&lt;code&gt;email&lt;/code&gt; 和 &lt;code&gt;password&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:create testuser&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你还可在命令中添加两个选项. &lt;code&gt;--super-admin&lt;/code&gt;以及&lt;code&gt;--inactive&lt;/code&gt;.&lt;br&gt;若输入了&lt;code&gt;--super-admin&lt;/code&gt;选项, 则会将创建的用户标记为超级管理员. 超级管理员拥有应用中的所有权限. 下面是例子:&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:create adminuser --super-admin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若输入了&lt;code&gt;--inactive&lt;/code&gt;, 则创建的用户将无法登陆, 除非该用户被激活.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:create testuser --inactive&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;激活用户&quot;&gt;&lt;a href=&quot;#激活用户&quot; class=&quot;headerlink&quot; title=&quot;激活用户&quot;&gt;&lt;/a&gt;激活用户&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fos:user:activate&lt;/code&gt;命令将激活一个未激活用户. 此命令必须包含一个&lt;code&gt;username&lt;/code&gt;的参数来指定激活哪一个用户. 若为输入&lt;code&gt;username&lt;/code&gt; 则会提示你来输入用户名. 下面是例子:&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php app/console fos:user:activate testuser&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;comment&quot;&gt;# OR if you are using Symfony &amp;gt;= 2.8 with the new directory structure&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console fos:user:activate testuser&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;停用用户&quot;&gt;&lt;a href=&quot;#停用用户&quot; class=&quot;headerlink&quot; title=&quot;停用用户&quot;&gt;&lt;/a&gt;停用用户&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fos:user:deactivate&lt;/code&gt;命令可以禁用用户. 和激活用户的命令一样, 此命令也必须包含一个&lt;code&gt;username&lt;/code&gt;的参数来指定禁用哪一个用户. 若未提供用户名, 则会被提示输入&lt;code&gt;username&lt;/code&gt;. 下面是例子&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php app/console fos:user:deactivate testuser&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;comment&quot;&gt;# OR if you are using Symfony &amp;gt;= 2.8 with the new directory structure&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console fos:user:deactivate testuser&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;设置用户权限&quot;&gt;&lt;a href=&quot;#设置用户权限&quot; class=&quot;headerlink&quot; title=&quot;设置用户权限&quot;&gt;&lt;/a&gt;设置用户权限&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fos:user:promote&lt;/code&gt;命令能够让你为一个用户添加一个角色或者使用户成为一个超级管理员.&lt;br&gt;假如你要为一个用户添加一个&lt;code&gt;role&lt;/code&gt; &lt;em&gt;(角色)&lt;/em&gt;, 你只需要将第一个参数设定为要添加的用户名, 第二个参数作为角色名即可.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:promote testuser ROLE_ADMIN&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你可以通过在用户名后面添加&lt;code&gt;--super&lt;/code&gt;选项, 将一个用户设定为超级管理员.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console fos:user:promote testuser --super&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若你没有输入任何参数, 则你会被询问来输入这些参数.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你可以不同时指定&lt;code&gt;role&lt;/code&gt;参数和&lt;code&gt;--super&lt;/code&gt;选项.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;清除用户权限&quot;&gt;&lt;a href=&quot;#清除用户权限&quot; class=&quot;headerlink&quot; title=&quot;清除用户权限&quot;&gt;&lt;/a&gt;清除用户权限&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fos:user:demote&lt;/code&gt;命令与为用户添加权限相似, 但功能相反.  你也可以使用这个命令来撤销一个超级管理员用户.&lt;br&gt;假如要移除一个用户的权限, 则需要将命令中的第一个参数设置为用户名, 第二个参数则为用户的角色.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:demote testuser ROLE_ADMIN&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;要撤销一个超级管理员用户, 仅需设置用户名参数, 然后再加上&lt;code&gt;--super&lt;/code&gt;选项即可.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:demote testuser --super&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你可以不同时指定&lt;code&gt;role&lt;/code&gt;参数和&lt;code&gt;--super&lt;/code&gt;选项.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;重置用户密码&quot;&gt;&lt;a href=&quot;#重置用户密码&quot; class=&quot;headerlink&quot; title=&quot;重置用户密码&quot;&gt;&lt;/a&gt;重置用户密码&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fos:user:change-password&lt;/code&gt;命令提供一个简单的方式来修改用户密码. 这个命令有两个参数: 用户名&lt;em&gt;(username)&lt;/em&gt;, 新密码&lt;em&gt;(password)&lt;/em&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php bin/console fos:user:change-password testuser newp@ssword&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文地址&lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FOSUserBundle提供了大量的命令行工具来帮助你管理应用中的用户. 有这些命令任务可用:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a User  &lt;em&gt;(创建用户)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Activate a User &lt;em&gt;(激活用户)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Deactivate a User &lt;em&gt;(停用用户)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Promote a User &lt;em&gt;(设置用户权限)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Demote a User &lt;em&gt;(清除用户权限)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Change a User’s Password &lt;em&gt;( 重置用户密码)&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在使用这些命令行之前, 你需要正确的安装以及配置好FOSUserBundle&lt;/p&gt;
+&lt;p&gt;此文中引用的是Symfony3的控制&lt;code&gt;bin/console&lt;/code&gt;. 如果你使用的Symfony2, 请调用&lt;code&gt;app/console&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
+    
+      <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+  </entry>
   
   <entry>
     <title>关于FOSUserBundle的用户管理服务</title>
@@ -569,11 +657,11 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -767,9 +855,9 @@ $this-&amp;gt;assertTrue(isset($info[&amp;apos;list_modules&amp;apos;]),
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
-    
       <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
     
   </entry>
   
@@ -852,9 +940,9 @@ print t(&amp;apos;My favorite color is %color.&amp;apos;, $values);
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
-    
       <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="Drupal" scheme="http://yoursite.com/tags/Drupal/"/>
     
   </entry>
   

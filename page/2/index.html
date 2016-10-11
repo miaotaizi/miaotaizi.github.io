@@ -216,6 +216,127 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/23/drupal-module-development-2/" itemprop="url">
+                  Drupal7模块开发 编写自动测试
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T23:34:41+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/外文翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">外文翻译</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/23/drupal-module-development-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/23/drupal-module-development-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在代码结构里面,有这许多种类的测试.其中两种是最受欢迎的, <em>单元测试</em> 和 <em>功能测试</em>.</p>
+<p>单元测试是专注于那些不连续的代码.  在面向对象的代码里,单元测试的重点是在一个对象里面的每个方法上. 在程序代码中,单元测试专注于函数,甚至偶尔在全局变量中.  其目的仅仅是为了去确认每个单元都能按照预期的职责去运行.</p>
+<p>大多数为Drupal编写的测试都不是单元测试.相反,他们是一些功能测试. 也就是说, 测试是为了验证在Drupal中插入的代码是否与预期的功能一样,并且与其他代码相吻合.  这是一个比单元测试更广泛的测试种类.  测试可以精确的测量更大的代码块的准确性.</p>
+<p>测试模块已经默认包含在Drupal7中,但是他是没有被默认启用的.一旦他启用了,你就可以在   Configuration-&gt;Development 找到Testing的配置页面.</p>
+<p>测试应该存在自己的文件中,就像模块的主代码存放在 <code>modulename/modulename.module</code>之中一样,测试文件也应该在<br><code>modulename/modulename.test</code>中,这样测试框架变会自动去检索到它</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/23/drupal-module-development-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/23/drupal-module-development-1/" itemprop="url">
                   Drupal7模块开发 创建第一个模块
                 </a>
@@ -365,7 +486,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
