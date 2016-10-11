@@ -390,7 +390,7 @@ fos_user:
     <link href="http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/"/>
     <id>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</id>
     <published>2016-09-15T12:33:03.000Z</published>
-    <updated>2016-10-09T13:11:00.000Z</updated>
+    <updated>2016-10-11T06:55:31.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&lt;/a&gt;&lt;/p&gt;
@@ -465,7 +465,7 @@ fos_user:
 &lt;p&gt;若使用的是MongoDB, 你则需要执行下面命令来创建索引.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console doctrine:mongodb:schema:create --index&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;现在你可以在&lt;code&gt;http://app.com/app_dev.php/login&lt;/code&gt;地址中登录了.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/07/fosuserbundle-overriding-default-forms/&quot; title=&quot;重写FOSUserBundle的默认表单&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/09/about-fosuserbundle-user-manager/&quot; title=&quot;关于FOSUserBundle的用户管理服务&quot;&gt;关于FOSUserBundle的用户管理服务&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;FOSUserBundle命令行管理工具&lt;/a&gt;(待翻译)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/07/fosuserbundle-overriding-default-forms/&quot; title=&quot;重写FOSUserBundle的默认表单&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/09/about-fosuserbundle-user-manager/&quot; title=&quot;关于FOSUserBundle的用户管理服务&quot;&gt;关于FOSUserBundle的用户管理服务&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/11/fosuserbundle-command-line-tools/&quot; title=&quot;FOSUserBundle命令行管理工具&quot;&gt;FOSUserBundle命令行管理工具&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;使用用户名或密码登录&lt;/a&gt;(待翻译)&lt;/p&gt;
 </content>
     
     <summary type="html">
