@@ -57,22 +57,25 @@
 
 
 
-<meta name="description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
+<meta name="description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html
 
-FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
+在FOSUserBundle的1.3.0版本中, 内建了通过用户名或者邮件字段登录功能的实现. 要启用这个功能只需修改配置中的用户服务提供器的id即可.
+12345# app/config/security.yml">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Symfony框架之重写FOSUserBundle的默认控制器">
-<meta property="og:url" content="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/index.html">
+<meta property="og:title" content="FOSUserBundle之使用用户名或密码登录">
+<meta property="og:url" content="http://yoursite.com/2016/10/12/fosuserbundle-logging-by-username-or-email/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
+<meta property="og:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html
 
-FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
-<meta property="og:updated_time" content="2016-10-04T13:54:43.000Z">
+在FOSUserBundle的1.3.0版本中, 内建了通过用户名或者邮件字段登录功能的实现. 要启用这个功能只需修改配置中的用户服务提供器的id即可.
+12345# app/config/security.yml">
+<meta property="og:updated_time" content="2016-10-12T06:02:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Symfony框架之重写FOSUserBundle的默认控制器">
-<meta name="twitter:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html
+<meta name="twitter:title" content="FOSUserBundle之使用用户名或密码登录">
+<meta name="twitter:description" content="原文地址http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html
 
-FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.">
+在FOSUserBundle的1.3.0版本中, 内建了通过用户名或者邮件字段登录功能的实现. 要启用这个功能只需修改配置中的用户服务提供器的id即可.
+12345# app/config/security.yml">
 
 
 
@@ -90,7 +93,7 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
   };
 </script>
 
-  <title> Symfony框架之重写FOSUserBundle的默认控制器 | Mr Miao </title>
+  <title> FOSUserBundle之使用用户名或密码登录 | Mr Miao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -220,7 +223,7 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
             
             
               
-                Symfony框架之重写FOSUserBundle的默认控制器
+                FOSUserBundle之使用用户名或密码登录
               
             
           </h1>
@@ -232,8 +235,8 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T21:49:41+08:00" content="2016-10-04">
-              2016-10-04
+            <time itemprop="dateCreated" datetime="2016-10-12T13:39:21+08:00" content="2016-10-12">
+              2016-10-12
             </time>
           </span>
 
@@ -262,8 +265,8 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/04/fosuserbundle-overriding-default-controllers/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="commentsCount"></span>
+                <a href="/2016/10/12/fosuserbundle-logging-by-username-or-email/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/fosuserbundle-logging-by-username-or-email/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -286,23 +289,10 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
 
       
         <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html</a></p>
 </blockquote>
-<p>FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.<br><a id="more"></a></p>
-<blockquote>
-<p>重写控制器需要复制所有的action逻辑. 大多数情况下使用事件来实现功能会更简单一些. 只有在没有其他办法的情况下才会考虑重写控制器.</p>
-</blockquote>
-<p>重写控制器的第一步是创建一个继承FOSUserBundle的子bundle. 下面的代码片段定义了一个名为<code>AcmeUserBundle</code>的继承自FOSUserBundle的子bundle.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/AcmeUserBundle.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpKernel</span>\<span class="title">Bundle</span>\<span class="title">Bundle</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AcmeUserBundle</span> <span class="keyword">extends</span> <span class="title">Bundle</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getParent</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'FOSUserBundle'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Symfony框架只中每个bundle只能有一个子bundle. 这意味着你不能再创建另外一个继承自FOSUserBundle的子bundle.</p>
-</blockquote>
-<p>现在你已经创建了一个新的子bundle, 你可以创建一个与你想重写的控制器路径以及名称相同的控制器类. 在这个例子中,通过扩展FOSUserBundle中的<code>RegistrationController</code>类来实现对<code>RegistrationController</code>的方法中额外的功能的重写.<br>下面的例子中重写了<code>registerAction</code>方法. 它使用了base 控制器的代码并且添加了新用户登录的逻辑.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// src/Acme/UserBundle/Controller/RegistrationController.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme</span>\<span class="title">UserBundle</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">RedirectResponse</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Controller</span>\<span class="title">RegistrationController</span> <span class="title">as</span> <span class="title">BaseController</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegistrationController</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">registerAction</span><span class="params">(Request $request)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $form = $this-&gt;container-&gt;get(<span class="string">'fos_user.registration.form'</span>);</span><br><span class="line">        $formHandler = $this-&gt;container-&gt;get(<span class="string">'fos_user.registration.form.handler'</span>);</span><br><span class="line">        $confirmationEnabled = $this-&gt;container-&gt;getParameter(<span class="string">'fos_user.registration.confirmation.enabled'</span>);</span><br><span class="line"></span><br><span class="line">        $process = $formHandler-&gt;process($confirmationEnabled);</span><br><span class="line">        <span class="keyword">if</span> ($process) &#123;</span><br><span class="line">            $user = $form-&gt;getData();</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*****************************************************</span><br><span class="line">             * Add new functionality (e.g. log the registration) *</span><br><span class="line">             *****************************************************/</span></span><br><span class="line">            $this-&gt;container-&gt;get(<span class="string">'logger'</span>)-&gt;info(</span><br><span class="line">                sprintf(<span class="string">'New user registration: %s'</span>, $user)</span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ($confirmationEnabled) &#123;</span><br><span class="line">                $this-&gt;container-&gt;get(<span class="string">'session'</span>)-&gt;set(<span class="string">'fos_user_send_confirmation_email/email'</span>, $user-&gt;getEmail());</span><br><span class="line">                $route = <span class="string">'fos_user_registration_check_email'</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                $this-&gt;authenticateUser($user);</span><br><span class="line">                $route = <span class="string">'fos_user_registration_confirmed'</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $this-&gt;setFlash(<span class="string">'fos_user_success'</span>, <span class="string">'registration.flash.user_created'</span>);</span><br><span class="line">            $url = $this-&gt;container-&gt;get(<span class="string">'router'</span>)-&gt;generate($route);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> RedirectResponse($url);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $this-&gt;container-&gt;get(<span class="string">'templating'</span>)-&gt;renderResponse(<span class="string">'FOSUserBundle:Registration:register.html.twig'</span>, <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'form'</span> =&gt; $form-&gt;createView(),</span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果在你想重写时不继承FOSUserBundle控制器类而是继承自FrameworkBundle提供的容器或者控制器, 那你就必须实现FOSUserBundle 的控制器所有的方法.</p>
-</blockquote>
-
+<p>在FOSUserBundle的1.3.0版本中, 内建了通过用户名或者邮件字段登录功能的实现. 要启用这个功能只需修改配置中的用户服务提供器的id即可.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># app/config/security.yml</span><br><span class="line">security:</span><br><span class="line">    providers:</span><br><span class="line">        fos_userbundle:</span><br><span class="line">            id: fos_user.user_provider.username_email</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -331,16 +321,16 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" rel="next" title="Symfony框架之FOSUserBundle挂载到控制器">
-                <i class="fa fa-chevron-left"></i> Symfony框架之FOSUserBundle挂载到控制器
+              <a href="/2016/10/11/fosuserbundle-command-line-tools/" rel="next" title="FOSUserBundle命令行管理工具">
+                <i class="fa fa-chevron-left"></i> FOSUserBundle命令行管理工具
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/07/fosuserbundle-overriding-default-forms/" rel="prev" title="重写FOSUserBundle的默认表单">
-                重写FOSUserBundle的默认表单 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/12/fosuserbundle-username-form-type/" rel="prev" title="FOSUserBundle用户名表单字段">
+                FOSUserBundle用户名表单字段 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -366,8 +356,8 @@ FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用.
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/"
-           data-title="Symfony框架之重写FOSUserBundle的默认控制器" data-url="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/">
+      <div class="ds-thread" data-thread-key="2016/10/12/fosuserbundle-logging-by-username-or-email/"
+           data-title="FOSUserBundle之使用用户名或密码登录" data-url="http://yoursite.com/2016/10/12/fosuserbundle-logging-by-username-or-email/">
       </div>
     
   </div>

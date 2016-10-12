@@ -4,7 +4,21 @@
   <url>
     <loc>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</loc>
     
-    <lastmod>2016-10-11T06:55:31.000Z</lastmod>
+    <lastmod>2016-10-12T06:07:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/12/fosuserbundle-username-form-type/</loc>
+    
+    <lastmod>2016-10-12T06:06:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/12/fosuserbundle-logging-by-username-or-email/</loc>
+    
+    <lastmod>2016-10-12T06:02:20.000Z</lastmod>
     
   </url>
   
