@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-12T06:06:27.000Z</updated>
+  <updated>2016-10-14T12:54:22.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FOSUserBundle的邮件服务</title>
+    <link href="http://yoursite.com/2016/10/14/fosuserbundle-emails/"/>
+    <id>http://yoursite.com/2016/10/14/fosuserbundle-emails/</id>
+    <published>2016-10-14T12:52:19.000Z</published>
+    <updated>2016-10-14T12:54:22.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FOSUserBundle内置了两种不同的发送邮件的实例.&lt;/p&gt;
+&lt;h4 id=&quot;注册确认&quot;&gt;&lt;a href=&quot;#注册确认&quot; class=&quot;headerlink&quot; title=&quot;注册确认&quot;&gt;&lt;/a&gt;注册确认&lt;/h4&gt;&lt;p&gt;在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.&lt;/p&gt;
+&lt;p&gt;通过邮件验证新用户注册默认是关闭的. 若要启用, 则需修改配置文件:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    registration:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        confirmation:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            enabled: true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;重置密码&quot;&gt;&lt;a href=&quot;#重置密码&quot; class=&quot;headerlink&quot; title=&quot;重置密码&quot;&gt;&lt;/a&gt;重置密码&lt;/h4&gt;&lt;p&gt;当用户需要重置密码的时候, 通常也是通过发送邮件的方式进行的. FOSUserBundle提供了一个通过两个步骤重置密码的功能. 首先, 用户必须发送一个重置密码的请求. 在发送完请求之后, 会发送一封带有访问链接的邮件. 当访问链接时, 用户会通过被包含在url中的token识别出来. 当用户访问了链接并且token被验证之后, 一个要求输入新密码的表单将呈现在用户面前.&lt;/p&gt;
+&lt;h4 id=&quot;默认的发送邮件实现&quot;&gt;&lt;a href=&quot;#默认的发送邮件实现&quot; class=&quot;headerlink&quot; title=&quot;默认的发送邮件实现&quot;&gt;&lt;/a&gt;默认的发送邮件实现&lt;/h4&gt;&lt;p&gt;FOSUserBundle带有三种邮件实现. 他们的服务id如下:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fos_user.mailer.default&lt;/code&gt;使用Swiftmailer来发送邮件的默认实现.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fos_user.mailer.twig_swift&lt;/code&gt;使用Swiftmailer发送邮件并且用twig区块来渲染消息.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fos_user.mailer.noop&lt;/code&gt;是一个不执行任何操作的邮件实现, 所以他不会发送邮件.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;fos_user.mailer.noop&lt;/code&gt;邮件服务是在你不需要发送邮件服务, 并且不在应用中安装SwiftmailerBundle的时候使用的. 如果你留下了默认的邮件配置, 并且没有注册SwiftmailerBundle, 你会收到一个依赖缺失的异常.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;配置发送邮件的地址&quot;&gt;&lt;a href=&quot;#配置发送邮件的地址&quot; class=&quot;headerlink&quot; title=&quot;配置发送邮件的地址&quot;&gt;&lt;/a&gt;配置发送邮件的地址&lt;/h4&gt;&lt;p&gt;FOSUserBundle默认的邮件服务允许你设置发送邮件的邮件地址.  你可以配置全局的邮件地址, 也可以为每一封邮件配置地址.&lt;/p&gt;
+&lt;p&gt;若要为所有发送出去的邮件设置地址, 仅需像下面这样更新你的&lt;code&gt;fos_user&lt;/code&gt;配置:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    #...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    from_email:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        address:        noreply@example.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sender_name:    Demo App&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;FOSUserBundle也提供了为每一封邮件设置邮件地址的灵活性.&lt;/p&gt;
+&lt;p&gt;若要为注册确认邮件设置地址, 仅需像下面这样更新你的&lt;code&gt;fos_user&lt;/code&gt;配置:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    #...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    registration:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        confirmation:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            from_email:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                address:        registration@example.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                sender_name:    Demo Registration&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你也可以通过配置&lt;code&gt;fos_user&lt;/code&gt;来设置重置密码请求发送出去的邮件地址:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    #...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    resetting:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        email:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            from_email:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                address:        resetting@example.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                sender_name:    Demo Resetting&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;发送HTML邮件&quot;&gt;&lt;a href=&quot;#发送HTML邮件&quot; class=&quot;headerlink&quot; title=&quot;发送HTML邮件&quot;&gt;&lt;/a&gt;发送HTML邮件&lt;/h4&gt;&lt;p&gt;默认的邮件服务只是单纯的发送文本信息. 如果你想发送复合信息, 最简单的解决方案就是使用TwigSwiftMailer实现. 他为你的twig模板定义了三个区块:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;subject&lt;/code&gt; 包含了邮件的主题&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;body_text&lt;/code&gt; 渲染纯文本版本的消息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;body_html&lt;/code&gt;渲染html邮件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面是如何使用的方法, 你可以参考下面两种引用邮件模板文件的方法.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    service:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        mailer: fos_user.mailer.twig_swift&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    resetting:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        email:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            template:   email/password_resetting.email.twig&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    registration:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        confirmation:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            template:   FOSUserBundle:Registration:email.txt.twig&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight twig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;#123;# app/Resources/views/email/password_resetting.email.twig #&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;block&lt;/span&gt;&lt;/span&gt; subject %&amp;#125;&lt;/span&gt;Resetting your password&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;endblock&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;block&lt;/span&gt;&lt;/span&gt; body_text %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;autoescape&lt;/span&gt;&lt;/span&gt; false %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Hello &lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123; user.username &amp;#125;&amp;#125;&lt;/span&gt; !&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;You can reset your password by accessing &lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123; confirmationUrl &amp;#125;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Greetings,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;the App team&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;endautoescape&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;endblock&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;block&lt;/span&gt;&lt;/span&gt; body_html %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;#123;#&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    You can of course render the html directly here.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Including a template as done here allows keeping things DRY by using&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    the template inheritance in it&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt;&lt;/span&gt; &#39;email/password_resetting.html.twig&#39; %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;endblock&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HTML部分仅在&lt;code&gt;body_html&lt;/code&gt;区块不为空的情况下才会显示在信息中.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;你可以在FOSUserBundle:Registration:email.txt.twig和FOSUserBundle:Resetting:email.txt.twig中查看默认的邮件模板.&lt;/p&gt;
+&lt;h4 id=&quot;使用自定义邮件服务&quot;&gt;&lt;a href=&quot;#使用自定义邮件服务&quot; class=&quot;headerlink&quot; title=&quot;使用自定义邮件服务&quot;&gt;&lt;/a&gt;使用自定义邮件服务&lt;/h4&gt;&lt;p&gt;FOSUserBundle使用的默认的邮件服务依赖于Swiftmailer类库. 如果你想使用其他的类库来发送邮件, 发送HTML邮件或者简单的修改邮件内容, 你可以向下面这样来定义你自己的邮件服务.&lt;/p&gt;
+&lt;p&gt;首先你得创建一个实现了&lt;code&gt;FOS\UserBundle\Mailer\MailerInterface&lt;/code&gt;接口的类. 接口如下:&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FOS&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Mailer&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FOS&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserBundle&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;Model&lt;/span&gt;\&lt;span class=&quot;title&quot;&gt;UserInterface&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * &lt;span class=&quot;doctag&quot;&gt;@author&lt;/span&gt; Thibault Duplessis &amp;lt;thibault.duplessis&lt;span class=&quot;doctag&quot;&gt;@gmail&lt;/span&gt;.com&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MailerInterface&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * Send an email to a user to confirm the account creation&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; UserInterface $user&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sendConfirmationEmailMessage&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(UserInterface $user)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * Send an email to a user to confirm the password reset&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; UserInterface $user&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sendResettingEmailMessage&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(UserInterface $user)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在你实现了你的自定义邮件类并且将它定义成了服务之后, 你需要更新你的配置文件, 以便FOSUserBundle能够正确的使用. 只要设置在&lt;code&gt;service&lt;/code&gt;部分的&lt;code&gt;mailer&lt;/code&gt;参数即可. 就像下面这样:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    service:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        mailer: app.custom_fos_user_mailer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你可以查看&lt;a href=&quot;https://github.com/simplethings/ZetaWebmailBundle&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZetaWebmailBundle&lt;/a&gt;中的&lt;a href=&quot;https://github.com/simplethings/ZetaWebmailBundle/blob/master/UserBundle/ZetaMailer.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZetaMailer&lt;/a&gt;类是如何实现&lt;code&gt;MailerInterface&lt;/code&gt;的. 这个实现使用了 Zeta Components Mail 来发送邮件, 而不是Swiftmailer.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;FOSUserBundle内置了两种不同的发送邮件的实例.&lt;/p&gt;
+&lt;h4 id=&quot;注册确认&quot;&gt;&lt;a href=&quot;#注册确认&quot; class=&quot;headerlink&quot; title=&quot;注册确认&quot;&gt;&lt;/a&gt;注册确认&lt;/h4&gt;&lt;p&gt;在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.&lt;/p&gt;
+&lt;p&gt;通过邮件验证新用户注册默认是关闭的. 若要启用, 则需修改配置文件:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# app/config/config.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fos_user:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    # ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    registration:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        confirmation:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            enabled: true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
+    
+      <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
+    
+  </entry>
   
   <entry>
     <title>FOSUserBundle用户名表单字段</title>
@@ -45,13 +124,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -78,13 +157,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -166,13 +245,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -241,13 +320,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -296,13 +375,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -344,13 +423,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -386,13 +465,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -448,13 +527,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -463,7 +542,7 @@ fos_user:
     <link href="http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/"/>
     <id>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</id>
     <published>2016-09-15T12:33:03.000Z</published>
-    <updated>2016-10-12T06:07:46.000Z</updated>
+    <updated>2016-10-14T12:56:22.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;原文地址: &lt;a href=&quot;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://symfony.com/doc/current/bundles/FOSUserBundle/index.html&lt;/a&gt;&lt;/p&gt;
@@ -538,7 +617,7 @@ fos_user:
 &lt;p&gt;若使用的是MongoDB, 你则需要执行下面命令来创建索引.&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ php bin/console doctrine:mongodb:schema:create --index&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;现在你可以在&lt;code&gt;http://app.com/app_dev.php/login&lt;/code&gt;地址中登录了.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/07/fosuserbundle-overriding-default-forms/&quot; title=&quot;重写FOSUserBundle的默认表单&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/09/about-fosuserbundle-user-manager/&quot; title=&quot;关于FOSUserBundle的用户管理服务&quot;&gt;关于FOSUserBundle的用户管理服务&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/11/fosuserbundle-command-line-tools/&quot; title=&quot;FOSUserBundle命令行管理工具&quot;&gt;FOSUserBundle命令行管理工具&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/12/fosuserbundle-logging-by-username-or-email/&quot; title=&quot;FOSUserBundle之使用用户名或密码登录&quot;&gt;FOSUserBundle之使用用户名或密码登录&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/12/fosuserbundle-username-form-type/&quot; title=&quot;FOSUserBundle用户名表单字段&quot;&gt;FOSUserBundle用户名表单字段&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;邮件系统&lt;/a&gt;(待翻译)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下一步&lt;/strong&gt;&lt;br&gt;现在你已经完成了FOSUserBundle的基本安装与配置, 可以了解一些更高级的特性.&lt;br&gt;比如下面这些可用的文档:&lt;br&gt;&lt;a href=&quot;/2016/09/28/overriding-default-fosuserbundle-templates/&quot; title=&quot;重写FOSUserBundle的默认模板&quot;&gt;重写FOSUserBundle的默认模板&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/01/fosuserbundle-hooking-into-the-controller/&quot; title=&quot;挂载到控制器&quot;&gt;挂载到控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/04/fosuserbundle-overriding-default-controllers/&quot; title=&quot;重写FOSUserBundle的默认控制器&quot;&gt;重写FOSUserBundle的默认控制器&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/07/fosuserbundle-overriding-default-forms/&quot; title=&quot;重写FOSUserBundle的默认表单&quot;&gt;重写FOSUserBundle的默认表单&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/09/about-fosuserbundle-user-manager/&quot; title=&quot;关于FOSUserBundle的用户管理服务&quot;&gt;关于FOSUserBundle的用户管理服务&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/11/fosuserbundle-command-line-tools/&quot; title=&quot;FOSUserBundle命令行管理工具&quot;&gt;FOSUserBundle命令行管理工具&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/12/fosuserbundle-logging-by-username-or-email/&quot; title=&quot;FOSUserBundle之使用用户名或密码登录&quot;&gt;FOSUserBundle之使用用户名或密码登录&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/12/fosuserbundle-username-form-type/&quot; title=&quot;FOSUserBundle用户名表单字段&quot;&gt;FOSUserBundle用户名表单字段&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/2016/10/14/fosuserbundle-emails/&quot; title=&quot;FOSUserBundle的邮件服务&quot;&gt;FOSUserBundle的邮件服务&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;使用FOSUserBundle进行分组&lt;/a&gt;(待翻译)&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -554,13 +633,13 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
     
       <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
     
       <category term="FOSUserBundle" scheme="http://yoursite.com/tags/FOSUserBundle/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -730,11 +809,11 @@ fos_user:
       <category term="外文翻译" scheme="http://yoursite.com/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="AngularJs" scheme="http://yoursite.com/tags/AngularJs/"/>
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
