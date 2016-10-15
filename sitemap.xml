@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/10/15/fosuserbundle-groups/</loc>
+    
+    <lastmod>2016-10-15T12:43:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/09/15/getting-started-with-FOSUserBundle/</loc>
     
     <lastmod>2016-10-14T12:56:22.000Z</lastmod>
