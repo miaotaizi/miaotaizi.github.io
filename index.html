@@ -1,15 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -27,16 +34,38 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -50,11 +79,6 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
 
 
 <meta name="description" content="你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.">
@@ -63,31 +87,46 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Mr Miao">
 <meta property="og:description" content="你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mr Miao">
 <meta name="twitter:description" content="你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"right","display":"hide"},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
-  <title> Mr Miao </title>
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>Mr Miao</title>
   
 
 
@@ -97,38 +136,43 @@
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Mr Miao</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr Miao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -141,39 +185,19 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -184,6 +208,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -198,13 +224,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/15/fosuserbundle-groups/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -212,38 +252,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/15/fosuserbundle-groups/" itemprop="url">
-                  FOSUserBundle的分组功能
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/15/fosuserbundle-groups/" itemprop="url">FOSUserBundle的分组功能</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-15T20:37:16+08:00" content="2016-10-15">
-              2016-10-15
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-15T20:37:16+08:00">
+                2016-10-15
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -251,32 +295,30 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/15/fosuserbundle-groups/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/15/fosuserbundle-groups/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -285,27 +327,36 @@
       
         
           <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/groups.html">http://symfony.com/doc/current/bundles/FOSUserBundle/groups.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/groups.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/groups.html</a></p>
 </blockquote>
 <p>FOSUserBundle允许你对用户进行分组. 分组是区分角色集合的一种方式. 一个组里面的用户会被授予这个组里面所有角色的权限.</p>
 <blockquote>
 <p>Symfony支持角色继承, 所以从组中继承角色不是必须的. 如果在你的使用场景中继承了足够多的角色, 最好还是使用继承, 因为它更为高效.(分组功能需要数据库的驱动.)</p>
 </blockquote>
 <p>你需要在配置文件中明确启用这个启用分组功能. 唯一强制性的就是要配置你实现了<code>FOS\UserBundle\Model\GroupInterface</code>接口的<code>Group</code>类的完全限定名(fully qualified class name).</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/15/fosuserbundle-groups/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -315,6 +366,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -322,13 +377,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/14/fosuserbundle-emails/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -336,38 +405,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/14/fosuserbundle-emails/" itemprop="url">
-                  FOSUserBundle的邮件服务
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/14/fosuserbundle-emails/" itemprop="url">FOSUserBundle的邮件服务</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-14T20:52:19+08:00" content="2016-10-14">
-              2016-10-14
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-14T20:52:19+08:00">
+                2016-10-14
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -375,32 +448,30 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/14/fosuserbundle-emails/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/fosuserbundle-emails/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -409,26 +480,35 @@
       
         
           <blockquote>
-<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html">http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html</a></p>
+<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html</a></p>
 </blockquote>
 <p>FOSUserBundle内置了两种不同的发送邮件的实例.</p>
 <h4 id="注册确认"><a href="#注册确认" class="headerlink" title="注册确认"></a>注册确认</h4><p>在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.</p>
 <p>通过邮件验证新用户注册默认是关闭的. 若要启用, 则需修改配置文件:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># app/config/config.yml</span><br><span class="line">fos_user:</span><br><span class="line">    # ...</span><br><span class="line">    registration:</span><br><span class="line">        confirmation:</span><br><span class="line">            enabled: true</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/14/fosuserbundle-emails/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -438,6 +518,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -445,13 +529,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/12/fosuserbundle-username-form-type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -459,38 +557,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/12/fosuserbundle-username-form-type/" itemprop="url">
-                  FOSUserBundle用户名表单字段
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/12/fosuserbundle-username-form-type/" itemprop="url">FOSUserBundle用户名表单字段</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T14:00:46+08:00" content="2016-10-12">
-              2016-10-12
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-12T14:00:46+08:00">
+                2016-10-12
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -498,32 +600,30 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/12/fosuserbundle-username-form-type/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/fosuserbundle-username-form-type/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -533,10 +633,10 @@
         
           
             <blockquote>
-<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/form_type.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/form_type.html</a></p>
+<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/form_type.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/form_type.html</a></p>
 </blockquote>
 <p>FOSUserBundle提供了一个名为<code>fos_user_username</code>的用户名表单字段.  它是一个文本输入框, 接受用户名并且将其添加至用户实例中:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageFormType</span> <span class="keyword">extends</span> <span class="title">AbstractType</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">buildForm</span><span class="params">(FormBuilderInterface $builder, array $options)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $builder-&gt;add(<span class="string">'recipient'</span>, <span class="string">'FOS\UserBundle\Form\Type\UsernameFormType'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// if you are using Symfony &lt; 2.8 you should use the old name instead</span></span><br><span class="line">        <span class="comment">// $builder-&gt;add('recipient', 'fos_user_username');</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageFormType</span> <span class="keyword">extends</span> <span class="title">AbstractType</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">buildForm</span><span class="params">(FormBuilderInterface $builder, array $options)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $builder-&gt;add(<span class="string">'recipient'</span>, <span class="string">'FOS\UserBundle\Form\Type\UsernameFormType'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// if you are using Symfony &lt; 2.8 you should use the old name instead</span></span><br><span class="line">        <span class="comment">// $builder-&gt;add('recipient', 'fos_user_username');</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>假如你不想在应用中使用这种表单字段, 可以删除容器服务中的配置来禁用它:</p>
 <pre><code># app/config/config.yml
@@ -548,12 +648,19 @@ fos_user:
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -563,6 +670,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -570,13 +681,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/12/fosuserbundle-logging-by-username-or-email/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -584,38 +709,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/12/fosuserbundle-logging-by-username-or-email/" itemprop="url">
-                  FOSUserBundle之使用用户名或密码登录
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/12/fosuserbundle-logging-by-username-or-email/" itemprop="url">FOSUserBundle之使用用户名或密码登录</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T13:39:21+08:00" content="2016-10-12">
-              2016-10-12
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-12T13:39:21+08:00">
+                2016-10-12
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -623,32 +752,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/12/fosuserbundle-logging-by-username-or-email/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/fosuserbundle-logging-by-username-or-email/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -658,7 +785,7 @@ fos_user:
         
           
             <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/logging_by_username_or_email.html</a></p>
 </blockquote>
 <p>在FOSUserBundle的1.3.0版本中, 内建了通过用户名或者邮件字段登录功能的实现. 要启用这个功能只需修改配置中的用户服务提供器的id即可.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># app/config/security.yml</span><br><span class="line">security:</span><br><span class="line">    providers:</span><br><span class="line">        fos_userbundle:</span><br><span class="line">            id: fos_user.user_provider.username_email</span><br></pre></td></tr></table></figure>
@@ -666,12 +793,19 @@ fos_user:
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -681,6 +815,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -688,13 +826,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/11/fosuserbundle-command-line-tools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -702,38 +854,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/11/fosuserbundle-command-line-tools/" itemprop="url">
-                  FOSUserBundle命令行管理工具
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/11/fosuserbundle-command-line-tools/" itemprop="url">FOSUserBundle命令行管理工具</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-11T14:52:05+08:00" content="2016-10-11">
-              2016-10-11
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-11T14:52:05+08:00">
+                2016-10-11
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -741,32 +897,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/11/fosuserbundle-command-line-tools/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/fosuserbundle-command-line-tools/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -775,7 +929,7 @@ fos_user:
       
         
           <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html">http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/command_line_tools.html</a></p>
 </blockquote>
 <p>FOSUserBundle提供了大量的命令行工具来帮助你管理应用中的用户. 有这些命令任务可用:</p>
 <ol>
@@ -788,22 +942,33 @@ fos_user:
 </ol>
 <blockquote>
 <p>在使用这些命令行之前, 你需要正确的安装以及配置好FOSUserBundle</p>
+</blockquote>
+<blockquote>
 <p>此文中引用的是Symfony3的控制<code>bin/console</code>. 如果你使用的Symfony2, 请调用<code>app/console</code>.</p>
 </blockquote>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/11/fosuserbundle-command-line-tools/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -813,6 +978,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -820,13 +989,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/09/about-fosuserbundle-user-manager/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -834,38 +1017,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/09/about-fosuserbundle-user-manager/" itemprop="url">
-                  关于FOSUserBundle的用户管理服务
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/09/about-fosuserbundle-user-manager/" itemprop="url">关于FOSUserBundle的用户管理服务</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-09T21:06:14+08:00" content="2016-10-09">
-              2016-10-09
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-09T21:06:14+08:00">
+                2016-10-09
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -873,32 +1060,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/09/about-fosuserbundle-user-manager/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/about-fosuserbundle-user-manager/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -907,23 +1092,32 @@ fos_user:
       
         
           <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html">http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/user_manager.html</a></p>
 </blockquote>
 <p>所有用户操作都实现了<code>FOS\UserBundle\Model\UserManagerInterface</code>接口, 从而实现了与存储方式的分离.  使用这个接口可以确保你能够随意的改变存储方式. FOSUserBundle提供的默认控制器使用的是配置中的用户管理, 而不是直接调用的数据存储层.</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/09/about-fosuserbundle-user-manager/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -933,6 +1127,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -940,13 +1138,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/07/fosuserbundle-overriding-default-forms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -954,38 +1166,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/07/fosuserbundle-overriding-default-forms/" itemprop="url">
-                  重写FOSUserBundle的默认表单
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/07/fosuserbundle-overriding-default-forms/" itemprop="url">重写FOSUserBundle的默认表单</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T22:07:41+08:00" content="2016-10-07">
-              2016-10-07
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-07T22:07:41+08:00">
+                2016-10-07
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -993,32 +1209,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/07/fosuserbundle-overriding-default-forms/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/fosuserbundle-overriding-default-forms/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1027,23 +1241,32 @@ fos_user:
       
         
           <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_forms.html</a></p>
 </blockquote>
 <h4 id="重写表单类型"><a href="#重写表单类型" class="headerlink" title="重写表单类型"></a>重写表单类型</h4><p>FOSUserBundle为新用户注册, 更新用户信息, 修改密码等功能封装了默认的表单. 这些表单能很好的作用在默认的类以及控制器上. 但假如你想在你的<code>User</code>类里面添加更多的属性, 或者想在注册表单里面添加一些选项时, 就得去修改默认的表单.</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/07/fosuserbundle-overriding-default-forms/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1053,6 +1276,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1060,13 +1287,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/04/fosuserbundle-overriding-default-controllers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -1074,38 +1315,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="url">
-                  Symfony框架之重写FOSUserBundle的默认控制器
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="url">Symfony框架之重写FOSUserBundle的默认控制器</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T21:49:41+08:00" content="2016-10-04">
-              2016-10-04
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-04T21:49:41+08:00">
+                2016-10-04
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -1113,32 +1358,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/04/fosuserbundle-overriding-default-controllers/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/fosuserbundle-overriding-default-controllers/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1147,23 +1390,32 @@ fos_user:
       
         
           <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_controllers.html</a></p>
 </blockquote>
 <p>FOSUserBundle中默认的控制器提供了大量的功能来满足日常使用. 但在你的应用中, 通常需要继承这些功能, 并且在里面添加你自己的业务逻辑.<br>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/04/fosuserbundle-overriding-default-controllers/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1173,6 +1425,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1180,13 +1436,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/01/fosuserbundle-hooking-into-the-controller/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -1194,38 +1464,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" itemprop="url">
-                  Symfony框架之FOSUserBundle挂载到控制器
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/10/01/fosuserbundle-hooking-into-the-controller/" itemprop="url">Symfony框架之FOSUserBundle挂载到控制器</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-01T23:05:11+08:00" content="2016-10-01">
-              2016-10-01
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-01T23:05:11+08:00">
+                2016-10-01
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -1233,32 +1507,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/01/fosuserbundle-hooking-into-the-controller/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/01/fosuserbundle-hooking-into-the-controller/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1267,23 +1539,32 @@ fos_user:
       
         
           <blockquote>
-<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html">http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html</a></p>
+<p>原文地址<a href="http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/controller_events.html</a></p>
 </blockquote>
 <p>通过FOSUserBundle包装过的控制器提供了一些能够满足一般需要的功能. 不过你可能需要在你的应用中扩展这些功能, 并且加入你自己的业务逻辑.</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/01/fosuserbundle-hooking-into-the-controller/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1293,6 +1574,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1300,13 +1585,27 @@ fos_user:
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/28/overriding-default-fosuserbundle-templates/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
@@ -1314,38 +1613,42 @@ fos_user:
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/09/28/overriding-default-fosuserbundle-templates/" itemprop="url">
-                  Symfony框架之重写FOSUserBundle的默认模板
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/09/28/overriding-default-fosuserbundle-templates/" itemprop="url">Symfony框架之重写FOSUserBundle的默认模板</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-28T22:41:21+08:00" content="2016-09-28">
-              2016-09-28
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-28T22:41:21+08:00">
+                2016-09-28
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -1353,32 +1656,30 @@ fos_user:
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/28/overriding-default-fosuserbundle-templates/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/28/overriding-default-fosuserbundle-templates/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1387,27 +1688,38 @@ fos_user:
       
         
           <blockquote>
-<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html</a></p>
+<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/overriding_templates.html</a></p>
+</blockquote>
+<blockquote>
 <p>如果你在应用中使用了FOSUserBundle, 你势必会想办法去重写这个bundle提供的默认模板.<br>虽然模板的名称是不可配置的, 但是Symfony框架也为我们提供了两种重写模板的方式.</p>
 <ol>
 <li>在<code>app/Resources</code>文件夹中定义一个同名模板文件.</li>
 <li>创建一个继承了<code>FOSUserBundle</code>的bundle.</li>
 </ol>
 </blockquote>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/28/overriding-default-fosuserbundle-templates/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1417,6 +1729,10 @@ fos_user:
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1449,70 +1765,85 @@ fos_user:
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460"
-               alt="miaotaizi" />
-          <p class="site-author-name" itemprop="name">miaotaizi</p>
-          <p class="site-description motion-element" itemprop="description">你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">16</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460"
+                alt="miaotaizi" />
+            
+              <p class="site-author-name" itemprop="name">miaotaizi</p>
+              <p class="site-description motion-element" itemprop="description">你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.</p>
           </div>
 
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
               </a>
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
+
+          
           
 
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
           
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
-
       </section>
+
+      
 
       
 
@@ -1526,44 +1857,53 @@ fos_user:
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">miaotaizi</span>
+
+  
 </div>
 
-<!--<div class="powered-by">-->
-  <!--由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动-->
-<!--</div>-->
 
-<!--<div class="theme-info">-->
-  <!--主题 - -->
-  <!--<a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">-->
-    <!--NexT.Muse-->
-  <!--</a>-->
-<!--</div>-->
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
-
-
-  
-
-
-
 
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
@@ -1572,62 +1912,21 @@ fos_user:
 </script>
 
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
-  
-  
-
-  
-
-  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"mrmiao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
 
@@ -1635,10 +1934,112 @@ fos_user:
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
   
 
   
 
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

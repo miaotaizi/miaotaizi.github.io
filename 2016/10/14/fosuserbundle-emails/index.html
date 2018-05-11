@@ -1,15 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -27,16 +34,38 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="PHP,Symfony,FOSUserBundle,翻译," />
@@ -50,54 +79,56 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
-
-
-
-
-<meta name="description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html
-
-FOSUserBundle内置了两种不同的发送邮件的实例.
-注册确认在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.">
+<meta name="description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html  FOSUserBundle内置了两种不同的发送邮件的实例. 注册确认在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.">
+<meta name="keywords" content="PHP,Symfony,FOSUserBundle,翻译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FOSUserBundle的邮件服务">
 <meta property="og:url" content="http://yoursite.com/2016/10/14/fosuserbundle-emails/index.html">
 <meta property="og:site_name" content="Mr Miao">
-<meta property="og:description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html
-
-FOSUserBundle内置了两种不同的发送邮件的实例.
-注册确认在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.">
+<meta property="og:description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html  FOSUserBundle内置了两种不同的发送邮件的实例. 注册确认在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-10-14T12:54:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FOSUserBundle的邮件服务">
-<meta name="twitter:description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html
-
-FOSUserBundle内置了两种不同的发送邮件的实例.
-注册确认在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.">
+<meta name="twitter:description" content="原文地址: http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html  FOSUserBundle内置了两种不同的发送邮件的实例. 注册确认在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"right","display":"hide"},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
-  <title> FOSUserBundle的邮件服务 | Mr Miao </title>
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  <link rel="canonical" href="http://yoursite.com/2016/10/14/fosuserbundle-emails/"/>
+
+
+
+
+
+  <title>FOSUserBundle的邮件服务 | Mr Miao</title>
   
 
 
@@ -107,36 +138,42 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Mr Miao</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr Miao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -149,39 +186,19 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -192,6 +209,8 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -206,49 +225,68 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/14/fosuserbundle-emails/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miaotaizi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr Miao">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                FOSUserBundle的邮件服务
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">FOSUserBundle的邮件服务</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-14T20:52:19+08:00" content="2016-10-14">
-              2016-10-14
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-14T20:52:19+08:00">
+                2016-10-14
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/外文翻译/" itemprop="url" rel="index">
                     <span itemprop="name">外文翻译</span>
                   </a>
@@ -256,32 +294,30 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/14/fosuserbundle-emails/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/fosuserbundle-emails/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+          
+
+          
           
 
           
 
           
+
           
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -289,7 +325,7 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 
       
         <blockquote>
-<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html" target="_blank" rel="external">http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html</a></p>
+<p>原文地址: <a href="http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html" target="_blank" rel="noopener">http://symfony.com/doc/current/bundles/FOSUserBundle/emails.html</a></p>
 </blockquote>
 <p>FOSUserBundle内置了两种不同的发送邮件的实例.</p>
 <h4 id="注册确认"><a href="#注册确认" class="headerlink" title="注册确认"></a>注册确认</h4><p>在一个新用户注册完成之前, 如果在FOSUserBundle中配置了必须通过邮件确认的步骤, 系统会发送一封带有链接的邮件到用户邮箱中. 用户访问链接之后会对用户账户进行验证并且激活.</p>
@@ -322,40 +358,47 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 </ul>
 <p>下面是如何使用的方法, 你可以参考下面两种引用邮件模板文件的方法.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># app/config/config.yml</span><br><span class="line">fos_user:</span><br><span class="line">    # ...</span><br><span class="line">    service:</span><br><span class="line">        mailer: fos_user.mailer.twig_swift</span><br><span class="line">    resetting:</span><br><span class="line">        email:</span><br><span class="line">            template:   email/password_resetting.email.twig</span><br><span class="line">    registration:</span><br><span class="line">        confirmation:</span><br><span class="line">            template:   FOSUserBundle:Registration:email.txt.twig</span><br></pre></td></tr></table></figure>
-<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#123;# app/Resources/views/email/password_resetting.email.twig #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> subject %&#125;</span>Resetting your password<span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> body_text %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">autoescape</span></span> false %&#125;</span></span><br><span class="line">Hello <span class="template-variable">&#123;&#123; user.username &#125;&#125;</span> !</span><br><span class="line"></span><br><span class="line">You can reset your password by accessing <span class="template-variable">&#123;&#123; confirmationUrl &#125;&#125;</span></span><br><span class="line"></span><br><span class="line">Greetings,</span><br><span class="line">the App team</span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endautoescape</span></span> %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> body_html %&#125;</span></span><br><span class="line"><span class="comment">&#123;#</span><br><span class="line">    You can of course render the html directly here.</span><br><span class="line">    Including a template as done here allows keeping things DRY by using</span><br><span class="line">    the template inheritance in it</span><br><span class="line">#&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">include</span></span> 'email/password_resetting.html.twig' %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#123;# app/Resources/views/email/password_resetting.email.twig #&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> subject %&#125;</span>Resetting your password<span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> body_text %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">autoescape</span></span> false %&#125;</span></span><br><span class="line">Hello <span class="template-variable">&#123;&#123; user.username &#125;&#125;</span> !</span><br><span class="line"></span><br><span class="line">You can reset your password by accessing <span class="template-variable">&#123;&#123; confirmationUrl &#125;&#125;</span></span><br><span class="line"></span><br><span class="line">Greetings,</span><br><span class="line">the App team</span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endautoescape</span></span> %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">block</span></span> body_html %&#125;</span></span><br><span class="line"><span class="comment">&#123;#</span></span><br><span class="line"><span class="comment">    You can of course render the html directly here.</span></span><br><span class="line"><span class="comment">    Including a template as done here allows keeping things DRY by using</span></span><br><span class="line"><span class="comment">    the template inheritance in it</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">include</span></span> 'email/password_resetting.html.twig' %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endblock</span></span> %&#125;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>HTML部分仅在<code>body_html</code>区块不为空的情况下才会显示在信息中.</p>
 </blockquote>
 <p>你可以在FOSUserBundle:Registration:email.txt.twig和FOSUserBundle:Resetting:email.txt.twig中查看默认的邮件模板.</p>
 <h4 id="使用自定义邮件服务"><a href="#使用自定义邮件服务" class="headerlink" title="使用自定义邮件服务"></a>使用自定义邮件服务</h4><p>FOSUserBundle使用的默认的邮件服务依赖于Swiftmailer类库. 如果你想使用其他的类库来发送邮件, 发送HTML邮件或者简单的修改邮件内容, 你可以向下面这样来定义你自己的邮件服务.</p>
 <p>首先你得创建一个实现了<code>FOS\UserBundle\Mailer\MailerInterface</code>接口的类. 接口如下:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Mailer</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Model</span>\<span class="title">UserInterface</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * <span class="doctag">@author</span> Thibault Duplessis &lt;thibault.duplessis<span class="doctag">@gmail</span>.com&gt;</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MailerInterface</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Send an email to a user to confirm the account creation</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> UserInterface $user</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sendConfirmationEmailMessage</span><span class="params">(UserInterface $user)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Send an email to a user to confirm the password reset</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> UserInterface $user</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sendResettingEmailMessage</span><span class="params">(UserInterface $user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Mailer</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">FOS</span>\<span class="title">UserBundle</span>\<span class="title">Model</span>\<span class="title">UserInterface</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Thibault Duplessis &lt;thibault.duplessis<span class="doctag">@gmail</span>.com&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MailerInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Send an email to a user to confirm the account creation</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> UserInterface $user</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sendConfirmationEmailMessage</span><span class="params">(UserInterface $user)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Send an email to a user to confirm the password reset</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> UserInterface $user</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sendResettingEmailMessage</span><span class="params">(UserInterface $user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在你实现了你的自定义邮件类并且将它定义成了服务之后, 你需要更新你的配置文件, 以便FOSUserBundle能够正确的使用. 只要设置在<code>service</code>部分的<code>mailer</code>参数即可. 就像下面这样:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># app/config/config.yml</span><br><span class="line">fos_user:</span><br><span class="line">    # ...</span><br><span class="line">    service:</span><br><span class="line">        mailer: app.custom_fos_user_mailer</span><br></pre></td></tr></table></figure>
-<p>你可以查看<a href="https://github.com/simplethings/ZetaWebmailBundle" target="_blank" rel="external">ZetaWebmailBundle</a>中的<a href="https://github.com/simplethings/ZetaWebmailBundle/blob/master/UserBundle/ZetaMailer.php" target="_blank" rel="external">ZetaMailer</a>类是如何实现<code>MailerInterface</code>的. 这个实现使用了 Zeta Components Mail 来发送邮件, 而不是Swiftmailer.</p>
+<p>你可以查看<a href="https://github.com/simplethings/ZetaWebmailBundle" target="_blank" rel="noopener">ZetaWebmailBundle</a>中的<a href="https://github.com/simplethings/ZetaWebmailBundle/blob/master/UserBundle/ZetaMailer.php" target="_blank" rel="noopener">ZetaMailer</a>类是如何实现<code>MailerInterface</code>的. 这个实现使用了 Zeta Components Mail 来发送邮件, 而不是Swiftmailer.</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-      
-    </div>
+    
+
+    
+
+    
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/PHP/" rel="tag">#PHP</a>
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
-            <a href="/tags/Symfony/" rel="tag">#Symfony</a>
+            <a href="/tags/Symfony/" rel="tag"># Symfony</a>
           
-            <a href="/tags/FOSUserBundle/" rel="tag">#FOSUserBundle</a>
+            <a href="/tags/FOSUserBundle/" rel="tag"># FOSUserBundle</a>
           
-            <a href="/tags/翻译/" rel="tag">#翻译</a>
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -367,6 +410,8 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -381,6 +426,10 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -390,18 +439,19 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
     </div>
   </div>
 
+
           </div>
           
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/10/14/fosuserbundle-emails/"
-           data-title="FOSUserBundle的邮件服务" data-url="http://yoursite.com/2016/10/14/fosuserbundle-emails/">
-      </div>
-    
-  </div>
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
 
 
         </div>
@@ -417,97 +467,111 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460"
-               alt="miaotaizi" />
-          <p class="site-author-name" itemprop="name">miaotaizi</p>
-          <p class="site-description motion-element" itemprop="description">你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">16</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/6868360?v=3&s=460"
+                alt="miaotaizi" />
+            
+              <p class="site-author-name" itemprop="name">miaotaizi</p>
+              <p class="site-description motion-element" itemprop="description">你无法唤醒那些装睡的人,但你可以成为这个浑浊世界中清醒的那一个.</p>
           </div>
 
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
               </a>
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
+
+          
           
 
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
           
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
-
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册确认"><span class="nav-number">1.</span> <span class="nav-text">注册确认</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重置密码"><span class="nav-number">2.</span> <span class="nav-text">重置密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认的发送邮件实现"><span class="nav-number">3.</span> <span class="nav-text">默认的发送邮件实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置发送邮件的地址"><span class="nav-number">4.</span> <span class="nav-text">配置发送邮件的地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送HTML邮件"><span class="nav-number">5.</span> <span class="nav-text">发送HTML邮件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用自定义邮件服务"><span class="nav-number">6.</span> <span class="nav-text">使用自定义邮件服务</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -520,44 +584,53 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">miaotaizi</span>
+
+  
 </div>
 
-<!--<div class="powered-by">-->
-  <!--由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动-->
-<!--</div>-->
 
-<!--<div class="theme-info">-->
-  <!--主题 - -->
-  <!--<a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">-->
-    <!--NexT.Muse-->
-  <!--</a>-->
-<!--</div>-->
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
-
-
-  
-
-
-
 
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
@@ -566,223 +639,21 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 </script>
 
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
-  
-  
 
-  
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
-  
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"mrmiao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
 
@@ -790,10 +661,131 @@ FOSUserBundle内置了两种不同的发送邮件的实例.
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'd9c65b4367d05fa74b10',
+          clientSecret: '85e46fa6130eb0733db6b0466d4908eb08c149cb',
+          repo: 'miaotaizi.github.io',
+          owner: 'miaotaizi',
+          admin: ['miaotaizi'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
   
 
   
 
+  
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
