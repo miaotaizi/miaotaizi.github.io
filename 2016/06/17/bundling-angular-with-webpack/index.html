@@ -740,7 +740,7 @@
           repo: 'miaotaizi.github.io',
           owner: 'miaotaizi',
           admin: ['miaotaizi'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')

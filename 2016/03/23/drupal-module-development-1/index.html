@@ -760,7 +760,7 @@ print t(&apos;My favorite color is %color.&apos;, $values);
           repo: 'miaotaizi.github.io',
           owner: 'miaotaizi',
           admin: ['miaotaizi'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')
