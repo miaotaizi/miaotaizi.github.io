@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/09/19/sylius-book-architecture/</loc>
+    
+    <lastmod>2018-09-19T15:34:22.602Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/schedule/index.html</loc>
+    
+    <lastmod>2018-09-19T15:17:59.206Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/10/15/fosuserbundle-groups/</loc>
     
     <lastmod>2016-10-15T12:43:27.000Z</lastmod>
