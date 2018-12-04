@@ -306,7 +306,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/03/23/drupal-module-development-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2016/03/23/drupal-module-development-2/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/03/23/drupal-module-development-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -548,9 +549,12 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     </div>
 
   
@@ -830,6 +834,26 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
 
   
 
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2016/03/23/drupal-module-development-2/';
+          this.page.identifier = '2016/03/23/drupal-module-development-2/';
+          this.page.title = 'Drupal7模块开发 编写自动测试';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -851,43 +875,6 @@ $this-&gt;assertTrue(isset($info[&apos;list_modules&apos;]),
 
 
 
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'miaotaizi',
-            repo: 'miaotaizi.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '85e46fa6130eb0733db6b0466d4908eb08c149cb',
-            
-                client_id: 'd9c65b4367d05fa74b10'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
