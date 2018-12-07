@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-19T15:34:22.602Z</updated>
+  <updated>2016-10-15T12:43:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Sylius 结构介绍</title>
-    <link href="http://yoursite.com/2018/09/19/sylius-book-architecture/"/>
-    <id>http://yoursite.com/2018/09/19/sylius-book-architecture/</id>
-    <published>2018-09-19T15:32:37.000Z</published>
-    <updated>2018-09-19T15:34:22.602Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="Sylius文档" scheme="http://yoursite.com/categories/Sylius%E6%96%87%E6%A1%A3/"/>
-    
-    
-      <category term="Symfony" scheme="http://yoursite.com/tags/Symfony/"/>
-    
-      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
-      <category term="Sylius" scheme="http://yoursite.com/tags/Sylius/"/>
-    
-  </entry>
   
   <entry>
     <title>FOSUserBundle的分组功能</title>
